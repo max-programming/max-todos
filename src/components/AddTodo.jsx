@@ -7,29 +7,33 @@ const AddTodo = ({ makeTodos }) => {
 
   const handleChange = (e) => setText(e.target.value);
   const createTodo = (e) => {
+    e.preventDefault();
+    setText("");
     makeTodos(text);
   };
 
   return (
     <div>
       <Container maxWidth="sm">
-        <FormControl>
-          <TextField
-            label="I will do this"
-            variant="standard"
-            onChange={handleChange}
-            required={true}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ marginTop: 5 }}
-            onClick={createTodo}
-          >
-            <Add />
-            Add
-          </Button>
-        </FormControl>
+        <form onSubmit={createTodo}>
+          <FormControl fullWidth={true}>
+            <TextField
+              label="I will do this"
+              variant="standard"
+              onChange={handleChange}
+              required={true}
+              value={text}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ marginTop: 5 }}
+            >
+              <Add />
+              Add
+            </Button>
+          </FormControl>
+        </form>
       </Container>
     </div>
   );
