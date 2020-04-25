@@ -7,7 +7,7 @@ const Todo = ({ todo, todoNo }) => {
       <Card
         className="root"
         variant="outlined"
-        style={{ marginTop: 30, background: "lightgray" }}
+        style={{ marginTop: 35, background: "lightgray" }}
       >
         <CardContent>
           <Typography variant="h5" component="h2">
