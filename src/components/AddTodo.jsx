@@ -28,6 +28,7 @@ const AddTodo = ({ makeTodos }) => {
               variant="contained"
               color="primary"
               style={{ marginTop: 5 }}
+              type="submit"
             >
               <Add />
               Add
