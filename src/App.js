@@ -9,6 +9,7 @@ function App() {
     float: "right",
     fontWeight: "bold",
     fontSize: 25,
+    fontFamily: "monospace",
   };
   return (
     <div>
