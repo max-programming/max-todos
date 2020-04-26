@@ -12,9 +12,9 @@ import { v4 as uuid } from "uuid";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  let isDark, isLight;
-  isDark = true;
-  isLight = !isDark;
+  const [isDark, setIsDark] = useState(false);
+  const [isLight, setIsLight] = useState(true);
+
   const channelLink = {
     float: "right",
     fontWeight: "bold",
@@ -34,8 +34,8 @@ function App() {
   checkTheme();
 
   const changeTheme = () => {
-    isDark = !isDark;
-    isLight = !isLight;
+    setIsDark(!isDark);
+    setIsLight(!isLight);
     checkTheme();
   };
   const markComplete = (id) => {
