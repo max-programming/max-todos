@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import AddTodo from "./components/AddTodo";
+import React, { useState } from 'react';
+import AddTodo from './components/AddTodo';
 // import Todo from "./components/Todo";
-import Todos from "./components/Todos";
-import ThemeSwitcher from "./components/ThemeSwitcher";
-import { Link } from "@material-ui/core";
+import Todos from './components/Todos';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import { Link } from '@material-ui/core';
 import {
   enable as enableDarkMode,
   disable as disableDarkMode,
-} from "darkreader";
-import { v4 as uuid } from "uuid";
+} from 'darkreader';
+import { v4 as uuid } from 'uuid';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -16,10 +16,10 @@ function App() {
   const [isLight, setIsLight] = useState(true);
 
   const channelLink = {
-    float: "right",
-    fontWeight: "bold",
+    float: 'right',
+    fontWeight: 'bold',
     fontSize: 20,
-    fontFamily: "monospace",
+    fontFamily: 'monospace',
   };
   const checkTheme = () => {
     if (isLight === true && isDark === false) disableDarkMode();
@@ -49,12 +49,14 @@ function App() {
   };
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
   const addTodo = (title) => {
-    const newTodo = {
-      id: uuid(),
-      title,
-      completed: false,
-    };
-    setTodos([...todos, newTodo]);
+    if (title.trim()) {
+      const newTodo = {
+        id: uuid(),
+        title,
+        completed: false,
+      };
+      setTodos([...todos, newTodo]);
+    }
   };
   return (
     <div>
