@@ -23,9 +23,9 @@ const Todo = ({ todo, markComplete, delTodo }) => {
         <CardContent>
           <Typography variant="h5" component="h2" style={checkedStyle}>
             <IconButton onClick={markComplete.bind(this, todo.id)}>
-              <Check style={{ color: "black" }} />
+              <Check style={{ color: "green" }} />
             </IconButton>
-            {todo.title}
+            { todo.title }
             <IconButton
               style={{ float: "right" }}
               onClick={delTodo.bind(this, todo.id)}
