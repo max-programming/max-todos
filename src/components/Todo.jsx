@@ -7,8 +7,9 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { Check, Delete } from "@material-ui/icons";
+import EditIcon from "@material-ui/icons/Edit";
 
-const Todo = ({ todo, markComplete, delTodo }) => {
+const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
   let checkedStyle = { textDecoration: "none" };
   if (todo.completed) checkedStyle.textDecoration = "line-through";
   else checkedStyle.textDecoration = "none";
@@ -25,12 +26,18 @@ const Todo = ({ todo, markComplete, delTodo }) => {
             <IconButton onClick={markComplete.bind(this, todo.id)}>
               <Check style={{ color: "green" }} />
             </IconButton>
-            { todo.title }
+            {todo.title}
             <IconButton
               style={{ float: "right" }}
               onClick={delTodo.bind(this, todo.id)}
             >
               <Delete style={{ color: "red" }} />
+            </IconButton>
+            <IconButton
+              style={{ float: "right" }}
+              onClick={editTodo.bind(this, todo.id)}
+            >
+              <EditIcon style={{ color: "yellow" }} />
             </IconButton>
           </Typography>
         </CardContent>
