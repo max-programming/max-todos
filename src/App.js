@@ -58,6 +58,16 @@ function App() {
       setTodos([...todos, newTodo]);
     }
   };
+  const editTodo = (id) => {
+    let text = window.prompt('Edit Todo', '');
+    console.log(text);
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) todo.title = text;
+        return todo;
+      })
+    );
+  };
   return (
     <div>
       <ThemeSwitcher changeTheme={changeTheme} />
@@ -76,6 +86,7 @@ function App() {
         setTodos={setTodos}
         markComplete={markComplete}
         delTodo={delTodo}
+        editTodo={editTodo}
       />
     </div>
   );
