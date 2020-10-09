@@ -35,7 +35,7 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
             </IconButton>
             <IconButton
               style={{ float: 'right' }}
-              onClick={editTodo.bind(this, todo.id)}
+              onClick={editTodo.bind(this, todo.id, todo.title)}
             >
               <EditIcon style={{ color: '#303F9F' }} />
             </IconButton>

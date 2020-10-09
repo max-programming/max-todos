@@ -58,15 +58,17 @@ function App() {
       setTodos([...todos, newTodo]);
     }
   };
-  const editTodo = (id) => {
-    let text = window.prompt('Edit Todo', '');
+  const editTodo = (id, title) => {
+    let text = window.prompt('Edit Todo', title);
+    if (!(text === null) && text.trim()) {
+      setTodos(
+        todos.map((todo) => {
+          if (todo.id === id) todo.title = text;
+          return todo;
+        })
+      );
+    }
     console.log(text);
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) todo.title = text;
-        return todo;
-      })
-    );
   };
   return (
     <div>
