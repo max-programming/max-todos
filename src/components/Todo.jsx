@@ -37,7 +37,7 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
               style={{ float: 'right' }}
               onClick={editTodo.bind(this, todo.id)}
             >
-              <EditIcon style={{ color: 'blue' }} />
+              <EditIcon style={{ color: '#303F9F' }} />
             </IconButton>
           </Typography>
         </CardContent>
