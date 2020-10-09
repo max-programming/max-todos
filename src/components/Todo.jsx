@@ -6,14 +6,9 @@ import {
   Container,
   IconButton,
 } from "@material-ui/core";
-// import { Check, Delete } from '@material-ui/icons';
-// import DoneOutlineTwoToneIcon from "@material-ui/icons/DoneOutlineTwoTone";
 import CheckTwoToneIcon from '@material-ui/icons/CheckTwoTone';
-// import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
-// import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
-// import EditIcon from '@material-ui/icons/Edit';
 
 const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
   let checkedStyle = { textDecoration: "none" };
