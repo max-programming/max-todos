@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 
-const Todos = ({ todos, markComplete, delTodo, editTodo }) => {
+const Todos = ({ todos, markComplete, delTodo, showModal }) => {
   return (
     <div>
       {todos.map((todo, index) => {
@@ -12,7 +12,7 @@ const Todos = ({ todos, markComplete, delTodo, editTodo }) => {
             key={index}
             markComplete={markComplete}
             delTodo={delTodo}
-            editTodo={editTodo}
+            showModal={showModal}
           />
         );
       })}

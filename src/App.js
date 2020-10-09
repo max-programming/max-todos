@@ -3,17 +3,21 @@ import AddTodo from './components/AddTodo';
 // import Todo from "./components/Todo";
 import Todos from './components/Todos';
 import ThemeSwitcher from './components/ThemeSwitcher';
+import Modal from './components/Modal';
 import { Link } from '@material-ui/core';
 import {
   enable as enableDarkMode,
   disable as disableDarkMode,
 } from 'darkreader';
 import { v4 as uuid } from 'uuid';
+import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [isDark, setIsDark] = useState(false);
   const [isLight, setIsLight] = useState(true);
+  const [isModalOpen, setState] = useState(false);
+  const [todoId, setTodoId] = useState(0);
 
   const channelLink = {
     float: 'right',
@@ -45,7 +49,6 @@ function App() {
         return todo;
       })
     );
-    // console.log(id);
   };
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
   const addTodo = (title) => {
@@ -55,21 +58,30 @@ function App() {
         title,
         completed: false,
       };
-      setTodos([newTodo, ...todos]);
+      setTodos([...todos, newTodo]);
     }
   };
-  const editTodo = (id, title) => {
-    let text = window.prompt('Edit Todo', title);
-    if (!(text === null) && text.trim()) {
-      setTodos(
-        todos.map((todo) => {
-          if (todo.id === id) todo.title = text;
-          return todo;
-        })
-      );
-    }
-    console.log(text);
+
+  const editTodo = (id, title, text) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) todo.title = text;
+        return todo;
+      })
+    );
+    closeModal();
   };
+  const getTodoId = () => {
+    return todoId;
+  };
+  const showModal = (id, title) => {
+    setState(!isModalOpen);
+    setTodoId(id);
+  };
+  const closeModal = () => {
+    setState(!isModalOpen);
+  };
+
   return (
     <div>
       <ThemeSwitcher changeTheme={changeTheme} />
@@ -88,6 +100,13 @@ function App() {
         setTodos={setTodos}
         markComplete={markComplete}
         delTodo={delTodo}
+        showModal={showModal}
+      />
+      <Modal
+        isModalOpen={isModalOpen}
+        getTodoId={getTodoId}
+        todos={todos}
+        closeModal={closeModal}
         editTodo={editTodo}
       />
     </div>

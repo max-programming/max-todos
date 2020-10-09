@@ -10,7 +10,7 @@ import CheckTwoToneIcon from '@material-ui/icons/CheckTwoTone';
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 
-const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
+const Todo = ({ todo, markComplete, delTodo, showModal }) => {
   let checkedStyle = { textDecoration: "none" };
   if (todo.completed) checkedStyle.textDecoration = "line-through";
   else checkedStyle.textDecoration = "none";
@@ -41,7 +41,7 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
             </IconButton>
             <IconButton
               style={{ float: "right" }}
-              onClick={editTodo.bind(this, todo.id, todo.title)}
+              onClick={showModal.bind(this, todo.id, todo.title)}
               centerRipple={false}
             >
               <EditTwoToneIcon color="primary" />
