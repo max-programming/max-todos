@@ -55,7 +55,7 @@ function App() {
         title,
         completed: false,
       };
-      setTodos([...todos, newTodo]);
+      setTodos([newTodo, ...todos]);
     }
   };
   const editTodo = (id, title) => {
