@@ -34,7 +34,10 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
             {todo.title}
             <IconButton
               style={{ float: "right" }}
-              onClick={delTodo.bind(this, todo.id)}
+              onClick={() => {
+                const confirmation = window.confirm("Delete this to-do?");
+                if (confirmation) delTodo(todo.id);
+              }}
               centerRipple={false}
             >
               <DeleteTwoToneIcon color="error" />
