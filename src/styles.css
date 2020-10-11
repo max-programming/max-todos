@@ -1,0 +1,8 @@
+@media screen and (max-width: 768px) {
+  .add-todo {
+    margin-top: 10px;
+  }
+  .todo-text {
+    font-size: 1.3rem !important;
+  }
+}

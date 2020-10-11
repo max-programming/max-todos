@@ -6,7 +6,7 @@ import {
   Container,
   IconButton,
 } from "@material-ui/core";
-import CheckTwoToneIcon from '@material-ui/icons/CheckTwoTone';
+import CheckTwoToneIcon from "@material-ui/icons/CheckTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 
@@ -23,7 +23,12 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
         style={{ marginTop: 35, background: "lightgray" }}
       >
         <CardContent>
-          <Typography variant="h5" component="h2" style={checkedStyle}>
+          <Typography
+            variant="h5"
+            component="h2"
+            style={checkedStyle}
+            className="todo-text"
+          >
             <IconButton
               style={{ marginRight: 5 }}
               onClick={markComplete.bind(this, todo.id)}
