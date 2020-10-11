@@ -31,7 +31,7 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
           >
             <IconButton
               style={{ marginRight: 5 }}
-              onClick={markComplete.bind(this, todo.id)}
+              onClick={() => markComplete(todo.id)}
               centerRipple={false}
             >
               <CheckTwoToneIcon color="action" />
@@ -39,7 +39,7 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
             {todo.title}
             <IconButton
               style={{ float: "right" }}
-              onClick={delTodo.bind(this, todo.id)}
+              onClick={() => delTodo(todo.id)}
               centerRipple={false}
             >
               <DeleteTwoToneIcon color="error" />
