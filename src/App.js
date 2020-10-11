@@ -36,7 +36,7 @@ function App() {
   };
   return (
     <div>
-      <ThemeSwitcher changeTheme={changeTheme} />
+      <ThemeSwitcher isDark={isDark} changeTheme={changeTheme} />
       <Link
         href="https://youtube.com/c/MaxProgramming"
         target="_blank"
