@@ -4,13 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = useState([
-    {
-      id: 20,
-      title: "Default todo",
-      completed: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
   const addTodo = (title) => {
     if (title.trim()) {
       const newTodo = {
