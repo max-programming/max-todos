@@ -14,6 +14,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 
 ## 🧠 Features in mind
 
+- [x] Start using Context API
 - [ ] Store todos in `localstorage`
 - [ ] Make dark mode better
 - [ ] Improve for mobile
