@@ -14,10 +14,10 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 
 ## 🧠 Features in mind
 
-- [ ] Store todos in `localstorage`
 - [ ] Make dark mode better
 - [ ] Improve for mobile
 - [ ] PWA implemenatation
+- [x] Store todos in `localstorage`
 - [x] Start using Context API
 
 ## 🏗️ To build it
