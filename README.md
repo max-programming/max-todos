@@ -17,7 +17,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [ ] `prompt()` and `confirm()` alternatives
 - [ ] Make dark mode better
 - [ ] Improve for mobile
-- [ ] PWA implemenatation
+- [x] ~~_Basic PWA implemenatation_~~
 - [x] ~~_Store todos in `localStorage`_~~
 - [x] ~~_Start using Context API_~~
 
