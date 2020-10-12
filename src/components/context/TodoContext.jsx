@@ -1,10 +1,16 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = useState([]);
+  const initialState = JSON.parse(window.localStorage.getItem('todos'));
+  const [todos, setTodos] = useState(initialState || []);
+
+  useEffect(() => {
+    window.localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
+
   const addTodo = (title) => {
     if (title.trim()) {
       const newTodo = {
