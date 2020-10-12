@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { TodoContext } from "./context/TodoContext";
+import { MainContext } from "./context/MainContext";
 import Todo from "./Todo";
 
 const Todos = () => {
-  const { todos, markComplete, delTodo, editTodo } = useContext(TodoContext);
+  const { todos, markComplete, delTodo, editTodo } = useContext(MainContext);
   return (
     <div>
       {todos.map((todo) => {

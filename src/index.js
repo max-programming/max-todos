@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import { TodoProvider } from "./components/context/TodoContext";
+import { MainProvider } from "./components/context/MainContext";
 import App from "./App";
 import "./styles.css";
 
 ReactDOM.render(
-  <TodoProvider>
+  <MainProvider>
     <App />
-  </TodoProvider>,
+  </MainProvider>,
   document.getElementById("root")
 );
 

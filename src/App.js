@@ -1,17 +1,12 @@
-import React, { useState, useContext } from "react";
-import { TodoContext } from "./components/context/TodoContext";
+import React, { useContext } from "react";
+import { MainContext } from "./components/context/MainContext";
 import AddTodo from "./components/AddTodo";
 import Todos from "./components/Todos";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import { Link } from "@material-ui/core";
-import {
-  enable as enableDarkMode,
-  disable as disableDarkMode,
-} from "darkreader";
 
 function App() {
-  const { addTodo } = useContext(TodoContext);
-  const [isDark, setIsDark] = useState(false);
+  const { addTodo } = useContext(MainContext);
 
   const channelLink = {
     float: "right",
@@ -19,24 +14,10 @@ function App() {
     fontSize: 20,
     fontFamily: "monospace",
   };
-  const checkTheme = () => {
-    if (isDark) {
-      enableDarkMode({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10,
-      });
-    } else disableDarkMode();
-  };
-  checkTheme();
 
-  const changeTheme = () => {
-    setIsDark(!isDark);
-    checkTheme();
-  };
   return (
     <div>
-      <ThemeSwitcher isDark={isDark} changeTheme={changeTheme} />
+      <ThemeSwitcher />
       <Link
         href="https://youtube.com/c/MaxProgramming"
         target="_blank"
