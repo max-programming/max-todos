@@ -14,6 +14,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 
 ## 🧠 Features in mind
 
+- [ ] `prompt()` and `confirm()` alternatives
 - [ ] Make dark mode better
 - [ ] Improve for mobile
 - [ ] PWA implemenatation
