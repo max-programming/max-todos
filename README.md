@@ -17,8 +17,8 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [ ] Make dark mode better
 - [ ] Improve for mobile
 - [ ] PWA implemenatation
-- [x] Store todos in `localStorage`
-- [x] Start using Context API
+- [x] ~~_Store todos in `localStorage`_~~
+- [x] ~~_Start using Context API_~~
 
 ## 🏗️ To build it
 
