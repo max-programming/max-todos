@@ -2,6 +2,7 @@
 
 ## This is a super simple Todo App built using React.js and styled using Material UI.
 
+It uses the Context API in React, Material UI for design and `localStorage` to store todos
 ### You can view it here: https://maxtodos.netlify.app/
 
 ## 😃 You can:
@@ -17,6 +18,8 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [ ] `prompt()` and `confirm()` alternatives
 - [ ] Make dark mode better
 - [ ] Improve for mobile
+- [ ] Show toasts when todo added/edited/deleted
+- [ ] Drag todos to reorder them
 - [x] ~~_Basic PWA implemenatation_~~
 - [x] ~~_Store todos in `localStorage`_~~
 - [x] ~~_Start using Context API_~~
