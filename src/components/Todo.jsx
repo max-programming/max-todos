@@ -5,23 +5,25 @@ import {
   Typography,
   Container,
   IconButton,
+  useMediaQuery,
 } from "@material-ui/core";
 import CheckTwoToneIcon from "@material-ui/icons/CheckTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 
 const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
+  const matches = useMediaQuery("(max-width: 768px)");
   let checkedStyle = { textDecoration: "none" };
   if (todo.completed) checkedStyle.textDecoration = "line-through";
   else checkedStyle.textDecoration = "none";
   // todo.completed ? (checkedStyle.textDecoration = "line-through") : null;
+  const cardStyles = {
+    marginTop: matches ? 20 : 35,
+    background: "lightgray",
+  };
   return (
     <Container>
-      <Card
-        className="root"
-        variant="outlined"
-        style={{ marginTop: 35, background: "lightgray" }}
-      >
+      <Card className="root" variant="outlined" style={cardStyles}>
         <CardContent>
           <Typography
             variant="h5"

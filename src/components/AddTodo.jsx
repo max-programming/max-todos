@@ -4,7 +4,6 @@ import { Add } from "@material-ui/icons";
 
 const AddTodo = ({ addTodo }) => {
   const [text, setText] = useState("");
-
   const handleChange = (e) => setText(e.target.value);
   const createTodo = (e) => {
     e.preventDefault();
