@@ -16,6 +16,7 @@ function App() {
     fontSize: 15,
     fontFamily: "monospace",
     paddingRight: 7,
+    color: "#2962FF",
   };
 
   return (
@@ -24,7 +25,6 @@ function App() {
       <Link
         href="https://usman2102.hashnode.dev/"
         target="_blank"
-        color="error"
         style={channelLink}
       >
         Max Programming
@@ -38,7 +38,7 @@ function App() {
         color="error"
         style={channelLink}
       >
-        <YouTubeIcon color="inherit" fontSize="large" />
+        <YouTubeIcon style={{ color: "#FF0000" }} fontSize="large" />
       </Link>
 
       <Link
@@ -47,7 +47,7 @@ function App() {
         color="error"
         style={channelLink}
       >
-        <TwitterIcon color="primary" fontSize="large" />
+        <TwitterIcon style={{ color: "#1CA0F2" }} fontSize="large" />
       </Link>
 
       <Link
@@ -56,7 +56,7 @@ function App() {
         color="error"
         style={channelLink}
       >
-        <InstagramIcon color="action" fontSize="large" />
+        <InstagramIcon style={{ color: "#D42874" }} fontSize="large" />
       </Link>
 
       <AddTodo addTodo={addTodo} />
