@@ -26,10 +26,21 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [x] ~~_Store todos in `localStorage`_~~
 - [x] ~~_Start using Context API_~~
 
+
 ## 🏗️ To build it
 
 1. Clone this repo by running `git clone https://github.com/max-programming/max-todos.git`.
 2. `cd` into the `max-todos` folder and run `npm i`.
 3. Run `npm start` to start the development server.
+
+## 🤝 Contributors
+
+- [@max-programming](https://github.com/max-programming)
+- [@ychan052](https://github.com/ychan052)
+- [@Steffan153](https://github.com/Steffan153)
+- [@tusharkashyap63](https://github.com/tusharkashyap63)
+- [@m11dedhia](https://github.com/m11dedhia)
+- [@DharmarajX24](https://github.com/DharmarajX24)
+- [@Chensokheng](https://github.com/Chensokheng)
 
 ❤️ Feel free to create issues and contributions for features or bugs to this project.
