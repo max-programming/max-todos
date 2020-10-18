@@ -11,6 +11,7 @@ It uses the Context API in React, Material UI for design and `localStorage` to s
 - Add todo
 - Edit todo
 - Delete todo
+- Reorder the todos by dragging them
 
 It also has a Dark mode support with the help of [Dark Reader](https://darkreader.org/).
 
@@ -18,8 +19,8 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Improve for mobile
-- [x] Show toasts when todo added/edited/deleted
-- [x] Drag todos to reorder them
+- [x] ~~*Show toasts when todo added/edited/deleted*~~
+- [x] ~~*Drag todos to reorder them*~~
 - [x] ~~_`prompt()` and `confirm()` alternatives_~~
 - [x] ~~_Basic PWA implemenatation_~~
 - [x] ~~_Store todos in `localStorage`_~~
