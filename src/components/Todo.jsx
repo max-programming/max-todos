@@ -8,8 +8,8 @@ import {
   Container,
   IconButton,
   useMediaQuery,
+  Checkbox,
 } from "@material-ui/core";
-import CheckTwoToneIcon from "@material-ui/icons/CheckTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 
@@ -35,13 +35,12 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
             style={checkedStyle}
             className="todo-text"
           >
-            <IconButton
+            <Checkbox
+              color="primary"
               style={{ marginRight: 5 }}
               onClick={() => markComplete(todo.id)}
               centerRipple={false}
-            >
-              <CheckTwoToneIcon color="action" />
-            </IconButton>
+            />
             {todo.title}
             <IconButton
               style={{ float: "right" }}
