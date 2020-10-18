@@ -16,7 +16,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 
 ## 🧠 Features in mind
 
-- [ ] Make dark mode better
+- [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Improve for mobile
 - [x] Show toasts when todo added/edited/deleted
 - [x] Drag todos to reorder them

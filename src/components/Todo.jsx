@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import DeleteConfirm from './DeleteConfirm';
+import EditConfirm from './EditConfirm';
 import {
   Card,
   CardContent,
@@ -6,22 +8,16 @@ import {
   Container,
   IconButton,
   useMediaQuery,
-  Snackbar,
+  Checkbox,
 } from '@material-ui/core';
 import { Draggable } from 'react-beautiful-dnd';
-import CheckTwoToneIcon from '@material-ui/icons/CheckTwoTone';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
-import DeleteConfirm from './DeleteConfirm';
-import EditConfirm from './EditConfirm';
-import { Alert } from '@material-ui/lab';
-import { Check } from '@material-ui/icons';
 
-const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete }) => {
+const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete, onEdit }) => {
   const matches = useMediaQuery('(max-width: 768px)');
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
-  const [editSnackOpen, setEditSnackOpen] = useState(false);
   let checkedStyle = { textDecoration: 'none' };
   if (todo.completed) checkedStyle.textDecoration = 'line-through';
   else checkedStyle.textDecoration = 'none';
@@ -44,13 +40,12 @@ const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete }) => {
           >
             <CardContent>
               <Typography variant="h5" component="h2" style={checkedStyle} className="todo-text">
-                <IconButton
+                <Checkbox
+                  color="primary"
                   style={{ marginRight: 5 }}
                   onClick={() => markComplete(todo.id)}
                   centerRipple={false}
-                >
-                  <CheckTwoToneIcon color="action" />
-                </IconButton>
+                />
                 {todo.title}
                 <IconButton
                   style={{ float: 'right' }}
@@ -81,29 +76,15 @@ const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete }) => {
       <EditConfirm
         yes={(val) => {
           setEditOpen(false);
-          editTodo(todo.id, val);
-          setEditSnackOpen(true);
+          setTimeout(() => {
+            editTodo(todo.id, val);
+            onEdit();
+          }, 200);
         }}
         open={editOpen}
         close={() => setEditOpen(false)}
         value={todo.title}
       />
-      <Snackbar
-        open={editSnackOpen}
-        autoHideDuration={4000}
-        onClose={() => setEditSnackOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      >
-        <Alert
-          icon={<Check fontSize="inherit" />}
-          elevation={6}
-          variant="filled"
-          onClose={() => setEditSnackOpen(false)}
-          severity="success"
-        >
-          Successfully edited item!
-        </Alert>
-      </Snackbar>
     </Container>
   );
 };

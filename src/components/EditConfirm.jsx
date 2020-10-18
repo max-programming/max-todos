@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -7,7 +7,7 @@ import {
   DialogContentText,
   TextField,
   Button,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 const EditConfirm = ({ open, close, value, yes }) => {
   const [newValue, setNewValue] = useState(value);
@@ -19,7 +19,9 @@ const EditConfirm = ({ open, close, value, yes }) => {
     <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
       <DialogTitle id="form-dialog-title">Edit Item</DialogTitle>
       <DialogContent>
-        <DialogContentText>Please provide the new name for this item.</DialogContentText>
+        <DialogContentText>
+          Please provide the new name for this item.
+        </DialogContentText>
         <TextField
           autoFocus
           margin="dense"
@@ -28,14 +30,17 @@ const EditConfirm = ({ open, close, value, yes }) => {
           type="text"
           fullWidth
           value={newValue}
-          onChange={e => setNewValue(e.target.value)}
+          onChange={(e) => setNewValue(e.target.value)}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={() => newValue.trim() && yes(newValue)} color="primary">
+        <Button
+          onClick={() => newValue.trim() && yes(newValue)}
+          color="primary"
+        >
           OK
         </Button>
       </DialogActions>
