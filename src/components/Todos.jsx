@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { MainContext } from "./context/MainContext";
 import Todo from "./Todo";
 
