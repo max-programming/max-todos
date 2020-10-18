@@ -50,8 +50,7 @@ export const MainProvider = ({ children }) => {
       setTodos([newTodo, ...todos]);
     }
   };
-  const editTodo = (id, title) => {
-    let text = window.prompt("Edit Todo", title);
+  const editTodo = (id, text) => {
     if (!(text === null) && text.trim()) {
       setTodos(
         todos.map((todo) => {
