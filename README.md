@@ -19,7 +19,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [ ] Improve for mobile
 - [ ] Show toasts when todo added/edited/deleted
 - [ ] Drag todos to reorder them
-- [x] `prompt()` and `confirm()` alternatives
+- [x] ~~*`prompt()` and `confirm()` alternatives*~~
 - [x] ~~_Basic PWA implemenatation_~~
 - [x] ~~_Store todos in `localStorage`_~~
 - [x] ~~_Start using Context API_~~
