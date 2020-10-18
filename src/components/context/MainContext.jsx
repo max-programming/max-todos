@@ -69,6 +69,13 @@ export const MainProvider = ({ children }) => {
     );
   };
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
+  const moveTodo = (old, new_) => {
+    const copy = JSON.parse(JSON.stringify(todos));
+    const thing = JSON.parse(JSON.stringify(todos[old]));
+    copy.splice(old, 1);
+    copy.splice(new_, 0, thing);
+    setTodos(copy);
+  };
 
   return (
     <MainContext.Provider
@@ -81,6 +88,7 @@ export const MainProvider = ({ children }) => {
         editTodo,
         addTodo,
         changeTheme,
+        moveTodo
       }}
     >
       {children}

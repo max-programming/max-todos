@@ -1,6 +1,6 @@
-import { useState } from "react";
-import DeleteConfirm from "./DeleteConfirm";
-import EditConfirm from "./EditConfirm";
+import { useState } from 'react';
+import DeleteConfirm from './DeleteConfirm';
+import EditConfirm from './EditConfirm';
 import {
   Card,
   CardContent,
@@ -9,60 +9,66 @@ import {
   IconButton,
   useMediaQuery,
   Checkbox,
-} from "@material-ui/core";
-import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
-import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
+} from '@material-ui/core';
+import { Draggable } from 'react-beautiful-dnd';
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
+import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
 
-const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
-  const matches = useMediaQuery("(max-width: 768px)");
+const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete, onEdit }) => {
+  const matches = useMediaQuery('(max-width: 768px)');
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
-  let checkedStyle = { textDecoration: "none" };
-  if (todo.completed) checkedStyle.textDecoration = "line-through";
-  else checkedStyle.textDecoration = "none";
+  let checkedStyle = { textDecoration: 'none' };
+  if (todo.completed) checkedStyle.textDecoration = 'line-through';
+  else checkedStyle.textDecoration = 'none';
   // todo.completed ? (checkedStyle.textDecoration = "line-through") : null;
   const cardStyles = {
     marginTop: matches ? 20 : 35,
-    background: "lightgray",
+    background: 'lightgray',
   };
   return (
     <Container>
-      <Card className="root" variant="outlined" style={cardStyles}>
-        <CardContent>
-          <Typography
-            variant="h5"
-            component="h2"
-            style={checkedStyle}
-            className="todo-text"
+      <Draggable draggableId={todo.id} index={index}>
+        {(p) => (
+          <Card
+            className="root"
+            variant="outlined"
+            ref={p.innerRef}
+            {...p.draggableProps}
+            {...p.dragHandleProps}
+            style={{ ...cardStyles, userSelect: 'none', ...p.draggableProps.style }}
           >
-            <Checkbox
-              color="primary"
-              style={{ marginRight: 5 }}
-              onClick={() => markComplete(todo.id)}
-              centerRipple={false}
-            />
-            {todo.title}
-            <IconButton
-              style={{ float: "right" }}
-              onClick={() => setDeleteOpen(true)}
-              centerRipple={false}
-            >
-              <DeleteTwoToneIcon color="error" />
-            </IconButton>
-            <IconButton
-              style={{ float: "right" }}
-              onClick={() => setEditOpen(true)}
-              centerRipple={false}
-            >
-              <EditTwoToneIcon color="primary" />
-            </IconButton>
-          </Typography>
-        </CardContent>
-      </Card>
+            <CardContent>
+              <Typography variant="h5" component="h2" style={checkedStyle} className="todo-text">
+                <Checkbox
+                  color="primary"
+                  style={{ marginRight: 5 }}
+                  onClick={() => markComplete(todo.id)}
+                  centerRipple={false}
+                />
+                {todo.title}
+                <IconButton
+                  style={{ float: 'right' }}
+                  onClick={() => setDeleteOpen(true)}
+                  centerRipple={false}
+                >
+                  <DeleteTwoToneIcon color="error" />
+                </IconButton>
+                <IconButton style={{ float: 'right' }} onClick={() => setEditOpen(true)} centerRipple={false}>
+                  <EditTwoToneIcon color="primary" />
+                </IconButton>
+              </Typography>
+            </CardContent>
+          </Card>
+        )}
+      </Draggable>
       <DeleteConfirm
         yes={() => {
           setDeleteOpen(false);
-          setTimeout(() => delTodo(todo.id), 300);
+          setTimeout(() => {
+            delTodo(todo.id);
+            onDelete();
+          }, 200);
         }}
         open={deleteOpen}
         close={() => setDeleteOpen(false)}
@@ -70,7 +76,10 @@ const Todo = ({ todo, markComplete, delTodo, editTodo }) => {
       <EditConfirm
         yes={(val) => {
           setEditOpen(false);
-          editTodo(todo.id, val);
+          setTimeout(() => {
+            editTodo(todo.id, val);
+            onEdit();
+          }, 200);
         }}
         open={editOpen}
         close={() => setEditOpen(false)}
