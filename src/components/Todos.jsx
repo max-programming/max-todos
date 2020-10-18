@@ -1,4 +1,4 @@
-import React, { useContext, Fragment, useState } from 'react';
+import { useContext, Fragment, useState } from 'react';
 import { MainContext } from './context/MainContext';
 import { Droppable, DragDropContext } from 'react-beautiful-dnd';
 import Todo from './Todo';
@@ -9,6 +9,7 @@ import { Check } from '@material-ui/icons';
 const Todos = () => {
   const { todos, markComplete, delTodo, editTodo, moveTodo } = useContext(MainContext);
   const [deleteSnackOpen, setDeleteSnackOpen] = useState(false);
+  const [editSnackOpen, setEditSnackOpen] = useState(false);
   const onDragEnd = (x) => {
     if (!x.destination) return console.log(x);
     moveTodo(x.source.index, x.destination.index);
@@ -29,6 +30,7 @@ const Todos = () => {
                     editTodo={editTodo}
                     onDelete={() => setDeleteSnackOpen(true)}
                     index={i}
+                    onEdit={() => setEditSnackOpen(true)}
                   />
                 );
               })}
@@ -52,6 +54,22 @@ const Todos = () => {
           severity="success"
         >
           Successfully deleted item!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={editSnackOpen}
+        autoHideDuration={4000}
+        onClose={() => setEditSnackOpen(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
+        <Alert
+          icon={<Check fontSize="inherit" />}
+          elevation={6}
+          variant="filled"
+          onClose={() => setEditSnackOpen(false)}
+          severity="success"
+        >
+          Successfully edited item!
         </Alert>
       </Snackbar>
     </Fragment>
