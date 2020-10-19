@@ -5,4 +5,11 @@
   .todo-text {
     font-size: 1.3rem !important;
   }
+  .card-content {
+    padding: 12px !important;
+  }
+}
+
+.card-content {
+  padding: 16px;
 }

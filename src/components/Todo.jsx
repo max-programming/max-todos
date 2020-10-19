@@ -39,7 +39,7 @@ const Todo = ({
       <Draggable draggableId={todo.id} index={index}>
         {(p) => (
           <Card
-            className="root"
+            className="todo-card"
             variant="outlined"
             ref={p.innerRef}
             {...p.draggableProps}
@@ -50,7 +50,7 @@ const Todo = ({
               ...p.draggableProps.style,
             }}
           >
-            <CardContent>
+            <CardContent className="card-content">
               <Typography
                 variant="h5"
                 component="h2"
