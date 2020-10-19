@@ -1,13 +1,15 @@
-import { useContext, Fragment, useState } from 'react';
-import { MainContext } from './context/MainContext';
-import { Droppable, DragDropContext } from 'react-beautiful-dnd';
-import Todo from './Todo';
-import { Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
-import { Check } from '@material-ui/icons';
+import React, { useContext, Fragment, useState } from "react";
+import { MainContext } from "./context/MainContext";
+import { Droppable, DragDropContext } from "react-beautiful-dnd";
+import Todo from "./Todo";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import { Check } from "@material-ui/icons";
 
 const Todos = () => {
-  const { todos, markComplete, delTodo, editTodo, moveTodo } = useContext(MainContext);
+  const { todos, markComplete, delTodo, editTodo, moveTodo } = useContext(
+    MainContext
+  );
   const [deleteSnackOpen, setDeleteSnackOpen] = useState(false);
   const [editSnackOpen, setEditSnackOpen] = useState(false);
   const onDragEnd = (x) => {
@@ -44,7 +46,7 @@ const Todos = () => {
         open={deleteSnackOpen}
         autoHideDuration={4000}
         onClose={() => setDeleteSnackOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
           icon={<Check fontSize="inherit" />}
@@ -60,7 +62,7 @@ const Todos = () => {
         open={editSnackOpen}
         autoHideDuration={4000}
         onClose={() => setEditSnackOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
           icon={<Check fontSize="inherit" />}

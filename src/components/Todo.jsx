@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import DeleteConfirm from './DeleteConfirm';
-import EditConfirm from './EditConfirm';
+import React, { useState } from "react";
+import DeleteConfirm from "./DeleteConfirm";
+import EditConfirm from "./EditConfirm";
 import {
   Card,
   CardContent,
@@ -9,22 +9,30 @@ import {
   IconButton,
   useMediaQuery,
   Checkbox,
-} from '@material-ui/core';
-import { Draggable } from 'react-beautiful-dnd';
-import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
-import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
+} from "@material-ui/core";
+import { Draggable } from "react-beautiful-dnd";
+import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
+import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 
-const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete, onEdit }) => {
-  const matches = useMediaQuery('(max-width: 768px)');
+const Todo = ({
+  todo,
+  markComplete,
+  delTodo,
+  editTodo,
+  index,
+  onDelete,
+  onEdit,
+}) => {
+  const matches = useMediaQuery("(max-width: 768px)");
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
-  let checkedStyle = { textDecoration: 'none' };
-  if (todo.completed) checkedStyle.textDecoration = 'line-through';
-  else checkedStyle.textDecoration = 'none';
+  let checkedStyle = { textDecoration: "none" };
+  if (todo.completed) checkedStyle.textDecoration = "line-through";
+  else checkedStyle.textDecoration = "none";
   // todo.completed ? (checkedStyle.textDecoration = "line-through") : null;
   const cardStyles = {
     marginTop: matches ? 20 : 35,
-    background: 'lightgray',
+    background: "lightgray",
   };
   return (
     <Container>
@@ -36,10 +44,19 @@ const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete, onEdit }
             ref={p.innerRef}
             {...p.draggableProps}
             {...p.dragHandleProps}
-            style={{ ...cardStyles, userSelect: 'none', ...p.draggableProps.style }}
+            style={{
+              ...cardStyles,
+              userSelect: "none",
+              ...p.draggableProps.style,
+            }}
           >
             <CardContent>
-              <Typography variant="h5" component="h2" style={checkedStyle} className="todo-text">
+              <Typography
+                variant="h5"
+                component="h2"
+                style={checkedStyle}
+                className="todo-text"
+              >
                 <Checkbox
                   color="primary"
                   style={{ marginRight: 5 }}
@@ -48,13 +65,17 @@ const Todo = ({ todo, markComplete, delTodo, editTodo, index, onDelete, onEdit }
                 />
                 {todo.title}
                 <IconButton
-                  style={{ float: 'right' }}
+                  style={{ float: "right" }}
                   onClick={() => setDeleteOpen(true)}
                   centerRipple={false}
                 >
                   <DeleteTwoToneIcon color="error" />
                 </IconButton>
-                <IconButton style={{ float: 'right' }} onClick={() => setEditOpen(true)} centerRipple={false}>
+                <IconButton
+                  style={{ float: "right" }}
+                  onClick={() => setEditOpen(true)}
+                  centerRipple={false}
+                >
                   <EditTwoToneIcon color="primary" />
                 </IconButton>
               </Typography>

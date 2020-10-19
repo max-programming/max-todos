@@ -1,16 +1,22 @@
-import { useState } from 'react';
-import { FormControl, Container, Button, TextField, Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
-import { Add, Check } from '@material-ui/icons';
+import React, { useState } from "react";
+import {
+  FormControl,
+  Container,
+  Button,
+  TextField,
+  Snackbar,
+} from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import { Add, Check } from "@material-ui/icons";
 
 const AddTodo = ({ addTodo }) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [open, setOpen] = useState(false);
   const handleChange = (e) => setText(e.target.value);
   const createTodo = (e) => {
     e.preventDefault();
     addTodo(text);
-    setText('');
+    setText("");
     setOpen(true);
   };
 
@@ -26,7 +32,12 @@ const AddTodo = ({ addTodo }) => {
               required={true}
               value={text}
             />
-            <Button variant="contained" color="primary" style={{ marginTop: 5 }} type="submit">
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ marginTop: 5 }}
+              type="submit"
+            >
               <Add />
               Add
             </Button>
@@ -37,7 +48,7 @@ const AddTodo = ({ addTodo }) => {
         open={open}
         autoHideDuration={4000}
         onClose={() => setOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
           icon={<Check fontSize="inherit" />}
