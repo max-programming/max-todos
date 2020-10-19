@@ -18,14 +18,14 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 ## 🧠 Features in mind
 
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
+- [ ] Set the dark mode as per user's system theme
 - [ ] Improve for mobile
-- [x] ~~*Show toasts when todo added/edited/deleted*~~
-- [x] ~~*Drag todos to reorder them*~~
+- [x] ~~_Show toasts when todo added/edited/deleted_~~
+- [x] ~~_Drag todos to reorder them_~~
 - [x] ~~_`prompt()` and `confirm()` alternatives_~~
 - [x] ~~_Basic PWA implemenatation_~~
 - [x] ~~_Store todos in `localStorage`_~~
 - [x] ~~_Start using Context API_~~
-
 
 ## 🏗️ To build it
 
