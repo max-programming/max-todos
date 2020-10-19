@@ -1,10 +1,9 @@
-import React, { useContext, Fragment, useState } from "react";
+import React, { useContext, useState } from "react";
 import { MainContext } from "./context/MainContext";
 import { Droppable, DragDropContext } from "react-beautiful-dnd";
 import Todo from "./Todo";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { Check } from "@material-ui/icons";
 
 const Todos = () => {
   const { todos, markComplete, delTodo, editTodo, moveTodo } = useContext(
@@ -17,7 +16,7 @@ const Todos = () => {
     moveTodo(x.source.index, x.destination.index);
   };
   return (
-    <Fragment>
+    <>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="0">
           {(p) => (
@@ -49,7 +48,7 @@ const Todos = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
-          icon={<Check fontSize="inherit" />}
+          // icon={<Check fontSize="inherit" />}
           elevation={6}
           variant="filled"
           onClose={() => setDeleteSnackOpen(false)}
@@ -65,7 +64,7 @@ const Todos = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
-          icon={<Check fontSize="inherit" />}
+          // icon={<Check fontSize="inherit" />}
           elevation={6}
           variant="filled"
           onClose={() => setEditSnackOpen(false)}
@@ -74,7 +73,7 @@ const Todos = () => {
           Successfully edited item!
         </Alert>
       </Snackbar>
-    </Fragment>
+    </>
   );
 };
 

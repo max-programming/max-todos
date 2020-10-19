@@ -7,7 +7,7 @@ import {
   Snackbar,
 } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { Add, Check } from "@material-ui/icons";
+import { Add } from "@material-ui/icons";
 
 const AddTodo = ({ addTodo }) => {
   const [text, setText] = useState("");
@@ -51,7 +51,7 @@ const AddTodo = ({ addTodo }) => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
-          icon={<Check fontSize="inherit" />}
+          // icon={<Check fontSize="inherit" />}
           elevation={6}
           variant="filled"
           onClose={() => setOpen(false)}
