@@ -15,7 +15,6 @@ import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 import { MainContext } from "./context/MainContext";
 
-
 const Todo = ({
   todo,
   markComplete,
@@ -28,7 +27,7 @@ const Todo = ({
   const matches = useMediaQuery("(max-width: 768px)");
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
-  const {isDeleteConfirmation } = useContext(MainContext);
+  const { isDeleteConfirmation } = useContext(MainContext);
   let checkedStyle = { textDecoration: "none" };
   if (todo.completed) checkedStyle.textDecoration = "line-through";
   else checkedStyle.textDecoration = "none";
@@ -37,11 +36,16 @@ const Todo = ({
     marginTop: matches ? 20 : 35,
     background: "lightgray",
   };
-  const iconStyles = { 
-    float: "right", 
-    paddingTop: "10px"
-  }
-
+  const iconStyles = {
+    float: "right",
+    paddingTop: "10px",
+  };
+  const deleteTodo = (e) => {
+    if (e.shiftKey || isDeleteConfirmation) {
+      delTodo(todo.id);
+      onDelete();
+    } else setDeleteOpen(true);
+  };
   return (
     <Container>
       <Draggable draggableId={todo.id} index={index}>
@@ -58,7 +62,7 @@ const Todo = ({
               ...p.draggableProps.style,
             }}
           >
-            <CardContent className="card-content" style={{padding : "16px"}}>
+            <CardContent className="card-content" style={{ padding: "16px" }}>
               <Typography
                 variant="h5"
                 component="h2"
@@ -74,7 +78,7 @@ const Todo = ({
                 {todo.title}
                 <IconButton
                   style={iconStyles}
-                  onClick={() => isDeleteConfirmation ? delTodo(todo.id) : setDeleteOpen(true)}
+                  onClick={deleteTodo}
                   centerRipple={false}
                 >
                   <DeleteTwoToneIcon color="error" />

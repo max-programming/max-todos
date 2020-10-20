@@ -48,7 +48,6 @@ const Todos = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
-          // icon={<Check fontSize="inherit" />}
           elevation={6}
           variant="filled"
           onClose={() => setDeleteSnackOpen(false)}
@@ -64,7 +63,6 @@ const Todos = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
-          // icon={<Check fontSize="inherit" />}
           elevation={6}
           variant="filled"
           onClose={() => setEditSnackOpen(false)}
