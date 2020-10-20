@@ -9,6 +9,7 @@ import {
   IconButton,
   useMediaQuery,
   Checkbox,
+  Grid
 } from "@material-ui/core";
 import { Draggable } from "react-beautiful-dnd";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
@@ -32,14 +33,23 @@ const Todo = ({
   if (todo.completed) checkedStyle.textDecoration = "line-through";
   else checkedStyle.textDecoration = "none";
   // todo.completed ? (checkedStyle.textDecoration = "line-through") : null;
-  const cardStyles = {
-    marginTop: matches ? 20 : 35,
-    background: "lightgray",
-  };
-  const iconStyles = {
-    float: "right",
-    paddingTop: "10px",
-  };
+  const styles = {
+    card: {
+      marginTop: matches ? 20 : 35,
+      background: "lightgray",
+    },
+    icon: {
+      float: "right",
+      paddingTop: "10px",
+    },
+    text: {
+      wordBreak: "break-word",
+      display: "-webkit-box",
+      WebkitLineClamp: 3,
+      WebkitBoxOrient: "vertical",
+      overflow: "hidden"
+    }
+  }
   const deleteTodo = (e) => {
     if (e.shiftKey || isDeleteConfirmation) {
       delTodo(todo.id);
@@ -57,7 +67,7 @@ const Todo = ({
             {...p.draggableProps}
             {...p.dragHandleProps}
             style={{
-              ...cardStyles,
+              ...styles.card,
               userSelect: "none",
               ...p.draggableProps.style,
             }}
@@ -69,27 +79,37 @@ const Todo = ({
                 style={checkedStyle}
                 className="todo-text"
               >
-                <Checkbox
-                  color="primary"
-                  style={{ marginRight: 5 }}
-                  onClick={() => markComplete(todo.id)}
-                  centerRipple={false}
-                />
-                {todo.title}
-                <IconButton
-                  style={iconStyles}
-                  onClick={deleteTodo}
-                  centerRipple={false}
-                >
-                  <DeleteTwoToneIcon color="error" />
-                </IconButton>
-                <IconButton
-                  style={iconStyles}
-                  onClick={() => setEditOpen(true)}
-                  centerRipple={false}
-                >
-                  <EditTwoToneIcon color="primary" />
-                </IconButton>
+                <Grid container>
+                  <Grid item xs={2} sm={1}>
+                    <Checkbox
+                      color="primary"
+                      style={{ marginRight: 5 }}
+                      onClick={() => markComplete(todo.id)}
+                      centerRipple={false}
+                    />
+                  </Grid>
+                  <Grid item xs={8} sm={10}>
+                    <div style={styles.text}>
+                      {todo.title}
+                    </div>
+                  </Grid>
+                  <Grid item xs={2} sm={1}>
+                    <IconButton
+                      style={styles.icon}
+                      onClick={deleteTodo}
+                      centerRipple={false}
+                    >
+                      <DeleteTwoToneIcon color="error" />
+                    </IconButton>
+                    <IconButton
+                      style={styles.icon}
+                      onClick={() => setEditOpen(true)}
+                      centerRipple={false}
+                    >
+                      <EditTwoToneIcon color="primary" />
+                    </IconButton>
+                  </Grid>
+                </Grid>
               </Typography>
             </CardContent>
           </Card>
