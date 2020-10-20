@@ -13,7 +13,9 @@ import {
   Toolbar,
   Typography,
   Slide,
+  Button,
   useScrollTrigger,
+  useMediaQuery,
 } from "@material-ui/core";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -102,7 +104,7 @@ export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const matches = useMediaQuery("(max-width: 768px)");
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -122,24 +124,44 @@ export default function PersistentDrawerLeft(props) {
           })}
         >
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
-              centerRipple={false}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap style={{ flexGrow: 1 }}>
-              Max Todo
-            </Typography>
-            <Link href="/settings">
-              <IconButton style={{ color: "white" }} centerRipple={false}>
-                <SettingsIcon />
+            {matches && (
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                className={clsx(classes.menuButton, open && classes.hide)}
+                centerRipple={false}
+              >
+                <MenuIcon />
               </IconButton>
-            </Link>
+            )}
+            {!open && (
+              <>
+                <Link href="/">
+                  <Typography
+                    variant="h6"
+                    noWrap
+                    style={{ flexGrow: 1, cursor: "pointer" }}
+                  >
+                    Max Todo
+                  </Typography>
+                </Link>
+                {!matches &&
+                  ["Settings", "About"].map((name, i) => (
+                    <Link href={`/${name.toLowerCase()}`} key={name}>
+                      <Button
+                        startIcon={
+                          name === "Settings" ? <SettingsIcon /> : <AboutIcon />
+                        }
+                        style={{ color: "white", margin: 5 }}
+                      >
+                        {name}
+                      </Button>
+                    </Link>
+                  ))}
+              </>
+            )}
           </Toolbar>
         </AppBar>
       </HideOnScroll>
