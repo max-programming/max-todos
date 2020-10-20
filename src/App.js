@@ -3,32 +3,32 @@ import { MainContext } from "./components/context/MainContext";
 import AddTodo from "./components/AddTodo";
 import Todos from "./components/Todos";
 import Settings from "./components/pages/Settings";
-import ThemeSwitcher from "./components/ThemeSwitcher";
+// import ThemeSwitcher from "./components/ThemeSwitcher";
 import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
-import { Link } from "@material-ui/core";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
+// import { Link } from "@material-ui/core";
+// import YouTubeIcon from "@material-ui/icons/YouTube";
+// import TwitterIcon from "@material-ui/icons/Twitter";
+// import InstagramIcon from "@material-ui/icons/Instagram";
 import { Route } from "wouter";
 import About from "./components/pages/About";
 function App() {
   const { addTodo } = useContext(MainContext);
 
-  const channelLink = {
-    float: "right",
-    fontWeight: "bold",
-    fontSize: 15,
-    fontFamily: "monospace",
-    paddingRight: 7,
-    color: "#2962FF",
-  };
+  // const channelLink = {
+  //   float: "right",
+  //   fontWeight: "bold",
+  //   fontSize: 15,
+  //   fontFamily: "monospace",
+  //   paddingRight: 7,
+  //   color: "#2962FF",
+  // };
 
   return (
     <>
       <PersistentDrawerLeft />
       <Route path="/">
-        {/* <ThemeSwitcher /> */}
-        {/* <Link
+        <main style={{ height: "100vh" }}>
+          {/* <Link
         href="https://usman2102.hashnode.dev/"
         target="_blank"
         style={channelLink}
@@ -65,9 +65,10 @@ function App() {
         <InstagramIcon style={{ color: "#D42874" }} fontSize="large" />
       </Link> */}
 
-        <AddTodo addTodo={addTodo} />
+          <AddTodo addTodo={addTodo} />
 
-        <Todos />
+          <Todos />
+        </main>
       </Route>
       <Route path="/settings">
         <Settings />
