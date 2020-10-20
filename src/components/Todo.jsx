@@ -45,7 +45,7 @@ const Todo = ({
     text: {
       wordBreak: "break-word",
       display: "-webkit-box",
-      WebkitLineClamp: 3,
+      WebkitLineClamp: 2,
       WebkitBoxOrient: "vertical",
       overflow: "hidden"
     }
@@ -79,7 +79,7 @@ const Todo = ({
                 style={checkedStyle}
                 className="todo-text"
               >
-                <Grid container>
+                <Grid container  justify="center" alignItems="center">
                   <Grid item xs={2} sm={1}>
                     <Checkbox
                       color="primary"
@@ -88,12 +88,12 @@ const Todo = ({
                       centerRipple={false}
                     />
                   </Grid>
-                  <Grid item xs={8} sm={10}>
+                  <Grid item xs={6} sm={10}>
                     <div style={styles.text}>
                       {todo.title}
                     </div>
                   </Grid>
-                  <Grid item xs={2} sm={1}>
+                  <Grid item xs={4} sm={1}>
                     <IconButton
                       style={styles.icon}
                       onClick={deleteTodo}
