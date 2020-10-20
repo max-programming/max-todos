@@ -42,6 +42,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [@Steffan153](https://github.com/Steffan153)
 - [@tusharkashyap63](https://github.com/tusharkashyap63)
 - [@m11dedhia](https://github.com/m11dedhia)
+- [@lucas-jg](https://github.com/lucas-jg)
 - [@DharmarajX24](https://github.com/DharmarajX24)
 - [@Chensokheng](https://github.com/Chensokheng)
 
