@@ -1,10 +1,13 @@
+import { Container } from "@material-ui/core";
 import React from "react";
 
 const About = () => {
   return (
-    <div>
-      <h1>About Page</h1>
-    </div>
+    <>
+      <Container maxWidth="sm" style={{ height: "100vh" }}>
+        <h1>About Page</h1>
+      </Container>
+    </>
   );
 };
 
