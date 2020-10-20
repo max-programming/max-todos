@@ -20,8 +20,8 @@ export const MainProvider = ({ children }) => {
   );
 
   const changeDeleteConfirm = () => {
+    window.localStorage.setItem("deleteConfirmation", !isDeleteConfirmation);
     setIsDeleteConfirmation(!isDeleteConfirmation)
-    window.localStorage.setItem("deleteConfirmation", isDeleteConfirmation);
   }
 
   const changeTheme = () => {
