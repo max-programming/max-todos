@@ -82,6 +82,7 @@ const Todo = ({
                 <Grid container  justify="center" alignItems="center">
                   <Grid item xs={2} sm={1}>
                     <Checkbox
+                      checked={todo.completed}
                       color="primary"
                       style={{ marginRight: 5 }}
                       onClick={() => markComplete(todo.id)}
