@@ -24,11 +24,11 @@ function App() {
   // };
 
   return (
-    <>
+    <div style={{ height: "100vh" }}>
       <PersistentDrawerLeft />
       <Route path="/">
-        <main style={{ height: "100vh" }}>
-          {/* <Link
+        {/* <main style={{ height: "100vh" }}> */}
+        {/* <Link
         href="https://usman2102.hashnode.dev/"
         target="_blank"
         style={channelLink}
@@ -65,10 +65,10 @@ function App() {
         <InstagramIcon style={{ color: "#D42874" }} fontSize="large" />
       </Link> */}
 
-          <AddTodo addTodo={addTodo} />
+        <AddTodo addTodo={addTodo} />
 
-          <Todos />
-        </main>
+        <Todos />
+        {/* </main> */}
       </Route>
       <Route path="/settings">
         <Settings />
@@ -76,7 +76,7 @@ function App() {
       <Route path="/about">
         <About />
       </Route>
-    </>
+    </div>
   );
 }
 

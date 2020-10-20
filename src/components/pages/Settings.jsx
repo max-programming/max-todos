@@ -6,7 +6,7 @@ const Settings = () => {
   const { isDark, changeTheme } = useContext(MainContext);
   return (
     <>
-      <Container maxWidth="sm" style={{ height: "100vh" }}>
+      <Container maxWidth="sm">
         <h1>Settings Page</h1>
         <h3>
           Dark Mode:
