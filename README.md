@@ -31,8 +31,8 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 ## 🏗️ To build it
 
 1. Clone this repo by running `git clone https://github.com/max-programming/max-todos.git`.
-2. `cd` into the `max-todos` folder and run `npm i`.
-3. Run `npm start` to start the development server.
+2. `cd` into the `max-todos` folder and run `npm i` OR `yarn`.
+3. Run `npm start` OR `yarn start` to start the development server.
 
 ## 🤝 Contributors
 
