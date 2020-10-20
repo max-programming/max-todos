@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { MainContext } from "../context/MainContext";
 
 const Settings = () => {
-  const { isDark, changeTheme } = useContext(MainContext);
+  const { isDark, changeTheme, isDeleteConfirmation, changeDeleteConfirm, } = useContext(MainContext);
   return (
     <>
       <Container maxWidth="sm">
@@ -11,6 +11,10 @@ const Settings = () => {
         <h3>
           Dark Mode:
           <Switch onChange={changeTheme} checked={isDark} color="primary" />
+        </h3>
+        <h3>
+          Delete Confirmation:
+          <Switch onChange={changeDeleteConfirm} checked={isDeleteConfirmation} color="primary" />
         </h3>
       </Container>
     </>

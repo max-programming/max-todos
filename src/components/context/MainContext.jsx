@@ -15,6 +15,15 @@ export const MainProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("darkTheme")) || false
   );
 
+  const [isDeleteConfirmation, setIsDeleteConfirmation] = useState(
+    JSON.parse(localStorage.getItem("deleteConfirmation")) || false
+  );
+
+  const changeDeleteConfirm = () => {
+    setIsDeleteConfirmation(!isDeleteConfirmation)
+    window.localStorage.setItem("deleteConfirmation", isDeleteConfirmation);
+  }
+
   const changeTheme = () => {
     setIsDark(!isDark);
     if (isDark) {
@@ -82,6 +91,8 @@ export const MainProvider = ({ children }) => {
       value={{
         todos,
         isDark,
+        isDeleteConfirmation,
+        changeDeleteConfirm,
         setTodos,
         markComplete,
         delTodo,

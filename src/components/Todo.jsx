@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DeleteConfirm from "./DeleteConfirm";
 import EditConfirm from "./EditConfirm";
 import {
@@ -13,6 +13,8 @@ import {
 import { Draggable } from "react-beautiful-dnd";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
+import { MainContext } from "./context/MainContext";
+
 
 const Todo = ({
   todo,
@@ -26,6 +28,7 @@ const Todo = ({
   const matches = useMediaQuery("(max-width: 768px)");
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
+  const {isDeleteConfirmation } = useContext(MainContext);
   let checkedStyle = { textDecoration: "none" };
   if (todo.completed) checkedStyle.textDecoration = "line-through";
   else checkedStyle.textDecoration = "none";
@@ -71,7 +74,7 @@ const Todo = ({
                 {todo.title}
                 <IconButton
                   style={iconStyles}
-                  onClick={() => setDeleteOpen(true)}
+                  onClick={() => isDeleteConfirmation ? delTodo(todo.id) : setDeleteOpen(true)}
                   centerRipple={false}
                 >
                   <DeleteTwoToneIcon color="error" />
