@@ -20,6 +20,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Set the dark mode as per user's system theme
 - [ ] Improve for mobile
+- [ ] Add **Contact** and **About** page using [`wouter`](https://github.com/molefrog/wouter) (Already in `package.json`)
 - [x] ~~_Show toasts when todo added/edited/deleted_~~
 - [x] ~~_Drag todos to reorder them_~~
 - [x] ~~_`prompt()` and `confirm()` alternatives_~~

@@ -14,7 +14,8 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "wouter": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
