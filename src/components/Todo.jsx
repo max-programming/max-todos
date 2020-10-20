@@ -34,6 +34,11 @@ const Todo = ({
     marginTop: matches ? 20 : 35,
     background: "lightgray",
   };
+  const iconStyles = { 
+    float: "right", 
+    paddingTop: "10px"
+  }
+
   return (
     <Container>
       <Draggable draggableId={todo.id} index={index}>
@@ -50,7 +55,7 @@ const Todo = ({
               ...p.draggableProps.style,
             }}
           >
-            <CardContent className="card-content">
+            <CardContent className="card-content" style={{padding : "16px"}}>
               <Typography
                 variant="h5"
                 component="h2"
@@ -65,14 +70,14 @@ const Todo = ({
                 />
                 {todo.title}
                 <IconButton
-                  style={{ float: "right" }}
+                  style={iconStyles}
                   onClick={() => setDeleteOpen(true)}
                   centerRipple={false}
                 >
                   <DeleteTwoToneIcon color="error" />
                 </IconButton>
                 <IconButton
-                  style={{ float: "right" }}
+                  style={iconStyles}
                   onClick={() => setEditOpen(true)}
                   centerRipple={false}
                 >
