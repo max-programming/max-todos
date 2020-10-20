@@ -11,6 +11,7 @@ It uses the [Context API](https://reactjs.org/docs/context.html) to manage state
 - Edit todo
 - Delete todo
 - Reorder the todos by dragging them
+- Enable dark mode
 
 It also has a Dark mode support with the help of [Dark Reader](https://darkreader.org/).
 
