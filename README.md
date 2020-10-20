@@ -35,7 +35,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 2. `cd` into the `max-todos` folder and run `npm i` OR `yarn`.
 3. Run `npm start` OR `yarn start` to start the development server.
 
-## 🤝 Contributors
+## 🤝 Contributors (8)
 
 - [@max-programming](https://github.com/max-programming)
 - [@ychan052](https://github.com/ychan052)
