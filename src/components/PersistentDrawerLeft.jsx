@@ -12,6 +12,8 @@ import {
   useTheme,
   Toolbar,
   Typography,
+  Slide,
+  useScrollTrigger,
 } from "@material-ui/core";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -82,7 +84,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PersistentDrawerLeft() {
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -98,33 +114,35 @@ export default function PersistentDrawerLeft() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-            centerRipple={false}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap style={{ flexGrow: 1 }}>
-            Max Todo
-          </Typography>
-          <Link href="/settings">
-            <IconButton style={{ color: "white" }} centerRipple={false}>
-              <SettingsIcon />
+      <HideOnScroll {...props}>
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)}
+              centerRipple={false}
+            >
+              <MenuIcon />
             </IconButton>
-          </Link>
-        </Toolbar>
-      </AppBar>
+            <Typography variant="h6" noWrap style={{ flexGrow: 1 }}>
+              Max Todo
+            </Typography>
+            <Link href="/settings">
+              <IconButton style={{ color: "white" }} centerRipple={false}>
+                <SettingsIcon />
+              </IconButton>
+            </Link>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
       <Drawer
         className={classes.drawer}
         variant="persistent"
