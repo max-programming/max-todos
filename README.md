@@ -1,8 +1,7 @@
-# 🖊️ Todo App built using [React.js](https://reactjs.org/) and [Material UI](https://material-ui.com/)
-
+# 🖊️ Todo App built using [React.js](https://reactjs.org/) and Material UI
 ## This is a super simple Todo App built using React.js and styled using Material UI.
 
-It uses the Context API in React, Material UI for design and `localStorage` to store todos
+It uses the [Context API](https://reactjs.org/docs/context.html) to manage state, [Material UI](https://material-ui.com/) for design, [Wouter](https://github.com/molefrog/wouter) for routing and [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store todos
 
 ### You can view it here: https://maxtodos.netlify.app/
 
