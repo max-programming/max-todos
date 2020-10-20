@@ -39,12 +39,12 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 ## 🤝 Contributors (8)
 
 - [@max-programming](https://github.com/max-programming)
-- [@ychan052](https://github.com/ychan052)
+- [@Chensokheng](https://github.com/Chensokheng)
+- [@DharmarajX24](https://github.com/DharmarajX24)
+- [@lucas-jg](https://github.com/lucas-jg)
+- [@m11dedhia](https://github.com/m11dedhia)
 - [@Steffan153](https://github.com/Steffan153)
 - [@tusharkashyap63](https://github.com/tusharkashyap63)
-- [@m11dedhia](https://github.com/m11dedhia)
-- [@lucas-jg](https://github.com/lucas-jg)
-- [@DharmarajX24](https://github.com/DharmarajX24)
-- [@Chensokheng](https://github.com/Chensokheng)
+- [@ychan052](https://github.com/ychan052)
 
 ❤️ Feel free to create issues and contributions for features or bugs to this project.
