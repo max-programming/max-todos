@@ -20,7 +20,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [ ] Add a setting called **Disable Delete confirmation**
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Set the dark mode as per user's system theme
-- [ ] Improve for mobile
+- [ ] Improve for mobile. Read more at [#16](https://github.com/max-programming/max-todos/issues/16)
 - [x] ~~_Add **Settings** and **About** page using [`wouter`](https://github.com/molefrog/wouter) (Already in `package.json`)_~~
 - [x] ~~_Show toasts when todo added/edited/deleted_~~
 - [x] ~~_Drag todos to reorder them_~~
