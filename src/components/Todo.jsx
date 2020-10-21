@@ -9,7 +9,7 @@ import {
   IconButton,
   useMediaQuery,
   Checkbox,
-  Grid
+  Grid,
 } from "@material-ui/core";
 import { Draggable } from "react-beautiful-dnd";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
@@ -47,9 +47,9 @@ const Todo = ({
       display: "-webkit-box",
       WebkitLineClamp: 2,
       WebkitBoxOrient: "vertical",
-      overflow: "hidden"
-    }
-  }
+      overflow: "hidden",
+    },
+  };
   const deleteTodo = (e) => {
     if (e.shiftKey || isDeleteConfirmation) {
       delTodo(todo.id);
@@ -79,20 +79,18 @@ const Todo = ({
                 style={checkedStyle}
                 className="todo-text"
               >
-                <Grid container  alignItems="center" justify="space-between">
+                <Grid container alignItems="center" justify="space-evenly">
                   <Grid item>
                     <Checkbox
                       checked={todo.completed}
                       color="primary"
-                      style={{ marginRight: 5 }}
+                      // style={{ marginRight: 5 }}
                       onClick={() => markComplete(todo.id)}
                       centerRipple={false}
                     />
                   </Grid>
                   <Grid item xs={6} sm={7} md={9} lg={10}>
-                    <div style={styles.text}>
-                      {todo.title}
-                    </div>
+                    <div style={styles.text}>{todo.title}</div>
                   </Grid>
                   <Grid item xs={4} sm={3} md={2} lg={1}>
                     <IconButton
