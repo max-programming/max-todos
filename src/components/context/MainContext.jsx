@@ -70,12 +70,12 @@ export const MainProvider = ({ children }) => {
     }
   };
   const markComplete = (id) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) todo.completed = !todo.completed;
-        return todo;
-      })
-    );
+    const orderTodos = todos.map((todo) => {
+      if (todo.id === id) todo.completed = !todo.completed;
+      return todo;
+    })
+    orderTodos.sort((x,y) => x.completed - y.completed)
+    setTodos(orderTodos);
   };
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
   const moveTodo = (old, new_) => {
