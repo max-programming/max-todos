@@ -18,6 +18,7 @@ It uses the [Context API](https://reactjs.org/docs/context.html) to manage state
 
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Set the dark mode as per user's system theme
+- [ ] Fix the ServiceWorker file not found error. More at [#24](https://github.com/max-programming/max-todos/issues/24)
 - [ ] Improve the app using Lighthouse suggestions. More at [#22](https://github.com/max-programming/max-todos/issues/22)
 - [x] ~~_Improve for mobile. Read more at [#16](https://github.com/max-programming/max-todos/issues/16)_~~
 - [x] ~~_Add a **Hold Shift and click Delete** to remove the delete confirmation_~~
