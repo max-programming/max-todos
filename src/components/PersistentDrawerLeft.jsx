@@ -25,7 +25,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SettingsIcon from "@material-ui/icons/SettingsOutlined";
 import { Link } from "wouter";
 import clsx from "clsx";
-import React from "react";
+import { useState } from "react";
 
 const drawerWidth = 240;
 
@@ -103,7 +103,7 @@ function HideOnScroll(props) {
 export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const matches = useMediaQuery("(max-width: 768px)");
   const handleDrawerOpen = () => {
     setOpen(true);
