@@ -19,7 +19,7 @@ It uses the [Context API](https://reactjs.org/docs/context.html) to manage state
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Set the dark mode as per user's system theme
 - [ ] Improve the app using Lighthouse suggestions. More at [#22](https://github.com/max-programming/max-todos/issues/22)
-- [ ] Improve for mobile. Read more at [#16](https://github.com/max-programming/max-todos/issues/16)
+- [x] ~~_Improve for mobile. Read more at [#16](https://github.com/max-programming/max-todos/issues/16)_~~
 - [x] ~~_Add a **Hold Shift and click Delete** to remove the delete confirmation_~~
 - [x] ~~_Add a setting called **Disable Delete confirmation**_~~
 - [x] ~~_Add **Settings** and **About** page using [`wouter`](https://github.com/molefrog/wouter) (Already in `package.json`)_~~
@@ -36,9 +36,10 @@ It uses the [Context API](https://reactjs.org/docs/context.html) to manage state
 2. `cd` into the `max-todos` folder and run `npm i` OR `yarn`.
 3. Run `npm start` OR `yarn start` to start the development server.
 
-## 🤝 Contributors (8)
+## 🤝 Contributors (9)
 
 - [@max-programming](https://github.com/max-programming)
+- [@worachatsun](https://github.com/worachatsun)
 - [@Chensokheng](https://github.com/Chensokheng)
 - [@DharmarajX24](https://github.com/DharmarajX24)
 - [@lucas-jg](https://github.com/lucas-jg)
