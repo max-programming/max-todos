@@ -80,7 +80,7 @@ const Todo = ({
                 className="todo-text"
               >
                 <Grid container  justify="center" alignItems="center">
-                  <Grid item xs={2} sm={1}>
+                  <Grid item xs={2} sm={1} md={1}>
                     <Checkbox
                       color="primary"
                       style={{ marginRight: 5 }}
@@ -88,12 +88,12 @@ const Todo = ({
                       centerRipple={false}
                     />
                   </Grid>
-                  <Grid item xs={6} sm={10}>
+                  <Grid item xs={6} sm={8} md={9}>
                     <div style={styles.text}>
                       {todo.title}
                     </div>
                   </Grid>
-                  <Grid item xs={4} sm={1}>
+                  <Grid item xs={4} sm={3} md={2}>
                     <IconButton
                       style={styles.icon}
                       onClick={deleteTodo}
