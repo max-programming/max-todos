@@ -1,19 +1,18 @@
 # 🖊️ Todo App built using [React.js](https://reactjs.org/) and Material UI
+
 ## This is a super simple Todo App built using React.js and styled using Material UI.
 
-It uses the [Context API](https://reactjs.org/docs/context.html) to manage state, [Material UI](https://material-ui.com/) for design, [Wouter](https://github.com/molefrog/wouter) for routing and [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store todos
+It uses the [Context API](https://reactjs.org/docs/context.html) to manage state, [Material UI](https://material-ui.com/) for design, [Wouter](https://github.com/molefrog/wouter) for routing, [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store todos and Dark Mode support with [Dark Reader](https://darkreader.org/).
 
 ### You can view it here: https://maxtodos.netlify.app/
 
 ## 😃 You can:
 
-- Add todo
-- Edit todo
-- Delete todo
-- Reorder the todos by dragging them
-- Enable dark mode
-
-It also has a Dark mode support with the help of [Dark Reader](https://darkreader.org/).
+- ➕ Add todo
+- 🖊️ Edit todo
+- 🗑️ Delete todo
+- ↕️ Reorder the todos by dragging them
+- 🕶️ Enable dark mode
 
 ## 🧠 Features in mind
 
@@ -21,8 +20,8 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 - [ ] Set the dark mode as per user's system theme
 - [ ] Improve the app using Lighthouse suggestions. More at [#22](https://github.com/max-programming/max-todos/issues/22)
 - [ ] Improve for mobile. Read more at [#16](https://github.com/max-programming/max-todos/issues/16)
-- [x] ~~*Add a **Hold Shift and click Delete** to remove the delete confirmation*~~
-- [x] ~~*Add a setting called **Disable Delete confirmation***~~
+- [x] ~~_Add a **Hold Shift and click Delete** to remove the delete confirmation_~~
+- [x] ~~_Add a setting called **Disable Delete confirmation**_~~
 - [x] ~~_Add **Settings** and **About** page using [`wouter`](https://github.com/molefrog/wouter) (Already in `package.json`)_~~
 - [x] ~~_Show toasts when todo added/edited/deleted_~~
 - [x] ~~_Drag todos to reorder them_~~
