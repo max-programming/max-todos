@@ -19,6 +19,7 @@ It also has a Dark mode support with the help of [Dark Reader](https://darkreade
 
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Set the dark mode as per user's system theme
+- [ ] Improve the app using Lighthouse suggestions. More at [#18](https://github.com/max-programming/max-todos/issues/16)
 - [ ] Improve for mobile. Read more at [#16](https://github.com/max-programming/max-todos/issues/16)
 - [x] ~~*Add a **Hold Shift and click Delete** to remove the delete confirmation*~~
 - [x] ~~*Add a setting called **Disable Delete confirmation***~~
