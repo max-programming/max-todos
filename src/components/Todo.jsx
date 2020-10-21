@@ -79,8 +79,8 @@ const Todo = ({
                 style={checkedStyle}
                 className="todo-text"
               >
-                <Grid container  justify="center" alignItems="center">
-                  <Grid item xs={2} sm={1} md={1}>
+                <Grid container  alignItems="center" justify="space-between">
+                  <Grid item>
                     <Checkbox
                       color="primary"
                       style={{ marginRight: 5 }}
@@ -88,12 +88,12 @@ const Todo = ({
                       centerRipple={false}
                     />
                   </Grid>
-                  <Grid item xs={6} sm={8} md={9}>
+                  <Grid item xs={6} sm={7} md={9} lg={10}>
                     <div style={styles.text}>
                       {todo.title}
                     </div>
                   </Grid>
-                  <Grid item xs={4} sm={3} md={2}>
+                  <Grid item xs={4} sm={3} md={2} lg={1}>
                     <IconButton
                       style={styles.icon}
                       onClick={deleteTodo}
