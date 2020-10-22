@@ -1,13 +1,14 @@
-import { useContext, Fragment, useState } from 'react';
-import { MainContext } from './context/MainContext';
-import { Droppable, DragDropContext } from 'react-beautiful-dnd';
-import Todo from './Todo';
-import { Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
-import { Check } from '@material-ui/icons';
+import { useContext, useState } from "react";
+import { MainContext } from "./context/MainContext";
+import { Droppable, DragDropContext } from "react-beautiful-dnd";
+import Todo from "./Todo";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const Todos = () => {
-  const { todos, markComplete, delTodo, editTodo, moveTodo } = useContext(MainContext);
+  const { todos, markComplete, delTodo, editTodo, moveTodo } = useContext(
+    MainContext
+  );
   const [deleteSnackOpen, setDeleteSnackOpen] = useState(false);
   const [editSnackOpen, setEditSnackOpen] = useState(false);
   const onDragEnd = (x) => {
@@ -15,7 +16,7 @@ const Todos = () => {
     moveTodo(x.source.index, x.destination.index);
   };
   return (
-    <Fragment>
+    <>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="0">
           {(p) => (
@@ -44,10 +45,9 @@ const Todos = () => {
         open={deleteSnackOpen}
         autoHideDuration={4000}
         onClose={() => setDeleteSnackOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
-          icon={<Check fontSize="inherit" />}
           elevation={6}
           variant="filled"
           onClose={() => setDeleteSnackOpen(false)}
@@ -60,10 +60,9 @@ const Todos = () => {
         open={editSnackOpen}
         autoHideDuration={4000}
         onClose={() => setEditSnackOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert
-          icon={<Check fontSize="inherit" />}
           elevation={6}
           variant="filled"
           onClose={() => setEditSnackOpen(false)}
@@ -72,7 +71,7 @@ const Todos = () => {
           Successfully edited item!
         </Alert>
       </Snackbar>
-    </Fragment>
+    </>
   );
 };
 

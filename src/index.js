@@ -1,10 +1,10 @@
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import { MainProvider } from "./components/context/MainContext";
 import App from "./App";
 import "./styles.css";
 
-ReactDOM.render(
+render(
   <MainProvider>
     <App />
   </MainProvider>,

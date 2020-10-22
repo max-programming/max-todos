@@ -20,7 +20,7 @@ const DeleteConfirm = ({ open, close, yes }) => {
         <Button onClick={close} color="primary">
           No
         </Button>
-        <Button onClick={yes} color="primary">
+        <Button onClick={yes} color="primary" variant="contained">
           Yes
         </Button>
       </DialogActions>

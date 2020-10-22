@@ -40,6 +40,7 @@ const EditConfirm = ({ open, close, value, yes }) => {
         <Button
           onClick={() => newValue.trim() && yes(newValue)}
           color="primary"
+          variant="contained"
         >
           OK
         </Button>
