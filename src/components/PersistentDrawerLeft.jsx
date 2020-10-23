@@ -25,7 +25,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SettingsIcon from "@material-ui/icons/SettingsOutlined";
 import { Link } from "wouter";
 import clsx from "clsx";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const drawerWidth = 240;
 
