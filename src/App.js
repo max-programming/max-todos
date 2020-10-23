@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { MainContext } from "./components/context/MainContext";
 import AddTodo from "./components/AddTodo";
 import Todos from "./components/Todos";
