@@ -6,7 +6,7 @@ import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 
 const Todos = () => {
-  const { todos, markComplete, delTodo, editTodo, moveTodo } = useContext(
+  const { todos, markComplete, delTodo, editTodo, moveTodo, markStar } = useContext(
     MainContext
   );
   const [deleteSnackOpen, setDeleteSnackOpen] = useState(false);
@@ -29,6 +29,7 @@ const Todos = () => {
                     markComplete={markComplete}
                     delTodo={delTodo}
                     editTodo={editTodo}
+                    markStar={markStar}
                     onDelete={() => setDeleteSnackOpen(true)}
                     index={i}
                     onEdit={() => setEditSnackOpen(true)}
