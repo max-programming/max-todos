@@ -83,8 +83,7 @@ export const MainProvider = ({ children }) => {
       if (todo.id === id) todo.stared = !todo.stared;
       return todo;
     })
-    console.log(orderTodos)
-    // orderTodos.sort((x,y) => x.completed - y.completed)
+    orderTodos.sort((x,y) => y.stared - x.stared || x.completed - y.completed)
     setTodos(orderTodos);
   };
 
