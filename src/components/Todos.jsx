@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { MainContext } from "./context/MainContext";
 import { Droppable, DragDropContext } from "react-beautiful-dnd";
 import Todo from "./Todo";

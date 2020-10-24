@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "@material-ui/core";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import GitHubIcon from "@material-ui/icons/GitHub";

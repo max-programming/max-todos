@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import DeleteConfirm from "./DeleteConfirm";
 import EditConfirm from "./EditConfirm";
 import {
