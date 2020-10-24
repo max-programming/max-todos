@@ -18,18 +18,7 @@ It uses the [Context API](https://reactjs.org/docs/context.html) to manage state
 
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
 - [ ] Set the dark mode as per user's system theme
-- [ ] Fix the ServiceWorker file not found error. More at [#24](https://github.com/max-programming/max-todos/issues/24)
 - [ ] Improve the app using Lighthouse suggestions. More at [#22](https://github.com/max-programming/max-todos/issues/22)
-- [x] ~~_Improve for mobile. Read more at [#16](https://github.com/max-programming/max-todos/issues/16)_~~
-- [x] ~~_Add a **Hold Shift and click Delete** to remove the delete confirmation_~~
-- [x] ~~_Add a setting called **Disable Delete confirmation**_~~
-- [x] ~~_Add **Settings** and **About** page using [`wouter`](https://github.com/molefrog/wouter) (Already in `package.json`)_~~
-- [x] ~~_Show toasts when todo added/edited/deleted_~~
-- [x] ~~_Drag todos to reorder them_~~
-- [x] ~~_`prompt()` and `confirm()` alternatives_~~
-- [x] ~~_Basic PWA implemenatation_~~
-- [x] ~~_Store todos in `localStorage`_~~
-- [x] ~~_Start using Context API_~~
 
 ## 🏗️ To build it
 

@@ -26,6 +26,7 @@ import SettingsIcon from "@material-ui/icons/SettingsOutlined";
 import { Link } from "wouter";
 import clsx from "clsx";
 import React, { useState } from "react";
+import CustomLink from "./CustomLink";
 
 const drawerWidth = 240;
 
@@ -149,7 +150,7 @@ export default function PersistentDrawerLeft(props) {
                 </Link>
                 {!matches &&
                   ["Settings", "About"].map((name, i) => (
-                    <Link href={`/${name.toLowerCase()}`} key={name}>
+                    <CustomLink href={`/${name.toLowerCase()}`} key={name}>
                       <Button
                         startIcon={
                           name === "Settings" ? <SettingsIcon /> : <AboutIcon />
@@ -158,7 +159,7 @@ export default function PersistentDrawerLeft(props) {
                       >
                         {name}
                       </Button>
-                    </Link>
+                    </CustomLink>
                   ))}
               </>
             )}
@@ -186,7 +187,7 @@ export default function PersistentDrawerLeft(props) {
         <Divider />
         <List>
           {["Todos", "Settings", "About"].map((text, index) => (
-            <Link
+            <CustomLink
               key={text}
               onClick={handleDrawerClose}
               href={index === 0 ? "/" : `/${text.toLowerCase()}`}
@@ -203,7 +204,7 @@ export default function PersistentDrawerLeft(props) {
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
-            </Link>
+            </CustomLink>
           ))}
         </List>
       </Drawer>
