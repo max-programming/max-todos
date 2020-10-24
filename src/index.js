@@ -1,4 +1,5 @@
-import React, { render } from "react-dom";
+import React from 'react'
+import { render } from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import { MainProvider } from "./components/context/MainContext";
 import App from "./App";
