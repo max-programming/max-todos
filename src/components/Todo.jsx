@@ -14,8 +14,6 @@ import {
 import { Draggable } from "react-beautiful-dnd";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarIcon from '@material-ui/icons/Star';
 import { MainContext } from "./context/MainContext";
 
 const Todo = ({
@@ -26,7 +24,6 @@ const Todo = ({
   index,
   onDelete,
   onEdit,
-  markStar
 }) => {
   const matches = useMediaQuery("(max-width: 768px)");
   const [deleteOpen, setDeleteOpen] = useState(false);
@@ -92,10 +89,10 @@ const Todo = ({
                       centerRipple={false}
                     />
                   </Grid>
-                  <Grid item xs={6} sm={7} md={9} lg={9}>
+                  <Grid item xs={6} sm={7} md={9} lg={10}>
                     <div style={styles.text}>{todo.title}</div>
                   </Grid>
-                  <Grid item xs={4} sm={4} md={2} lg={2}>
+                  <Grid item xs={4} sm={3} md={2} lg={1}>
                     <IconButton
                       style={styles.icon}
                       onClick={deleteTodo}
@@ -109,13 +106,6 @@ const Todo = ({
                       centerRipple={false}
                     >
                       <EditTwoToneIcon color="primary" />
-                    </IconButton>
-                    <IconButton
-                      style={styles.icon}
-                      onClick={() => markStar(todo.id)}
-                      centerRipple={false}
-                    >
-                      {todo.stared ? <StarIcon style={{ color: "#ffd900" }} /> : <StarBorderIcon color="disabled" />}
                     </IconButton>
                   </Grid>
                 </Grid>

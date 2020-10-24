@@ -77,16 +77,6 @@ export const MainProvider = ({ children }) => {
     orderTodos.sort((x, y) => x.completed - y.completed);
     setTodos(orderTodos);
   };
-
-  const markStar = (id) => {
-    const orderTodos = todos.map((todo) => {
-      if (todo.id === id) todo.stared = !todo.stared;
-      return todo;
-    })
-    orderTodos.sort((x,y) => y.stared - x.stared || x.completed - y.completed)
-    setTodos(orderTodos);
-  };
-
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
   const moveTodo = (old, new_) => {
     const copy = JSON.parse(JSON.stringify(todos));
@@ -110,7 +100,6 @@ export const MainProvider = ({ children }) => {
         addTodo,
         changeTheme,
         moveTodo,
-        markStar
       }}
     >
       {children}
