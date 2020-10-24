@@ -8,7 +8,7 @@ const CustomLink = (props) => {
   };
   return (
     <Link {...props}>
-      <a style={isActive ? activeObject : {}}>{props.children}</a>
+      <span style={isActive ? activeObject : {}}>{props.children}</span>
     </Link>
   );
 };
