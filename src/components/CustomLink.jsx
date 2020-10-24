@@ -1,3 +1,4 @@
+import React from "react";
 import { useRoute, Link } from "wouter";
 
 const CustomLink = (props) => {

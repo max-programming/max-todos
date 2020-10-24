@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
   enable as enableDarkMode,
@@ -21,8 +21,8 @@ export const MainProvider = ({ children }) => {
 
   const changeDeleteConfirm = () => {
     window.localStorage.setItem("deleteConfirmation", !isDeleteConfirmation);
-    setIsDeleteConfirmation(!isDeleteConfirmation)
-  }
+    setIsDeleteConfirmation(!isDeleteConfirmation);
+  };
 
   const changeTheme = () => {
     setIsDark(!isDark);
@@ -73,8 +73,8 @@ export const MainProvider = ({ children }) => {
     const orderTodos = todos.map((todo) => {
       if (todo.id === id) todo.completed = !todo.completed;
       return todo;
-    })
-    orderTodos.sort((x,y) => x.completed - y.completed)
+    });
+    orderTodos.sort((x, y) => x.completed - y.completed);
     setTodos(orderTodos);
   };
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
