@@ -17,7 +17,7 @@ const EditConfirm = ({ open, close, value, yes }) => {
   };
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
-      <DialogTitle id="form-dialog-title">Edit Item</DialogTitle>
+      <DialogTitle id="form-dialog-title">EDIT ITEM</DialogTitle>
       <DialogContent>
         <DialogContentText>
           Please provide the new name for this item.
