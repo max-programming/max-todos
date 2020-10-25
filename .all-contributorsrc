@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Steffan153",
+      "name": "Steffan153",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/40404519?v=4",
+      "profile": "https://github.com/Steffan153",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "max-todos",
+  "projectOwner": "max-programming",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
