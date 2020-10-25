@@ -1,6 +1,6 @@
 # 🖊️ Todo App built using [React.js](https://reactjs.org/) and Material UI
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## This is a super simple Todo App built using React.js and styled using Material UI.
@@ -40,6 +40,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/Steffan153"><img src="https://avatars0.githubusercontent.com/u/40404519?v=4" width="100px;" alt=""/><br /><sub><b>Steffan153</b></sub></a><br /><a href="#ideas-Steffan153" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/worachatsun"><img src="https://avatars0.githubusercontent.com/u/9085914?v=4" width="100px;" alt=""/><br /><sub><b>Worachat Arunothaikrit</b></sub></a><br /><a href="#ideas-worachatsun" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/m11dedhia"><img src="https://avatars3.githubusercontent.com/u/13602231?v=4" width="100px;" alt=""/><br /><sub><b>Megh Dedhia</b></sub></a><br /><a href="https://github.com/max-programming/max-todos/commits?author=m11dedhia" title="Code">💻</a></td>
   </tr>
 </table>
 
