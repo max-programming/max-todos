@@ -6,15 +6,24 @@ import {
   DialogContentText,
   DialogTitle,
   Button,
+  Divider,
 } from "@material-ui/core";
 
 const DeleteConfirm = ({ open, close, yes }) => {
   return (
     <Dialog open={open} onClose={close}>
-      <DialogTitle>Delete this item?</DialogTitle>
+      <DialogTitle>DELETE ITEM?</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Are you really sure you want to delete this item?
+          Are you sure you want to delete this item?
+        </DialogContentText>
+        <Divider />
+        <br />
+        <DialogContentText>
+          <span style={{ color: "green", fontWeight: "bold" }}>PROTIP:</span>
+          <br />
+          You can hold down shift when clicking the <b>delete button</b> to
+          bypass this confirmation entirely
         </DialogContentText>
       </DialogContent>
       <DialogActions>
