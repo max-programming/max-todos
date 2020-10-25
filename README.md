@@ -29,20 +29,6 @@ It uses the [Context API](https://reactjs.org/docs/context.html) to manage state
 2. `cd` into the `max-todos` folder and run `npm i` OR `yarn`.
 3. Run `npm start` OR `yarn start` to start the development server.
 
-## 🤝 Contributors (9)
-
-- [@max-programming](https://github.com/max-programming)
-- [@worachatsun](https://github.com/worachatsun)
-- [@Chensokheng](https://github.com/Chensokheng)
-- [@DharmarajX24](https://github.com/DharmarajX24)
-- [@lucas-jg](https://github.com/lucas-jg)
-- [@m11dedhia](https://github.com/m11dedhia)
-- [@Steffan153](https://github.com/Steffan153)
-- [@tusharkashyap63](https://github.com/tusharkashyap63)
-- [@ychan052](https://github.com/ychan052)
-
-❤️ Feel free to create issues and contributions for features or bugs to this project.
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -62,3 +48,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+❤️ Feel free to create issues and contributions for features or bugs to this project.
