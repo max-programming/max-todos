@@ -1,8 +1,10 @@
 # 🖊️ Todo App built using [React.js](https://reactjs.org/) and [Material UI](https://material-ui.com/)
+<a href="https://gitmoji.carloscuesta.me">
+  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
+</a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 ## This is a super simple Todo App built using React.js and styled using Material UI.
 
 It uses the [Context API](https://reactjs.org/docs/context.html) to manage state, [Material UI](https://material-ui.com/) for design, [Wouter](https://github.com/molefrog/wouter) for routing, [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store todos and Dark Mode support with [Dark Reader](https://darkreader.org/).
