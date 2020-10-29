@@ -51,7 +51,7 @@ const Todo = forwardRef(
         WebkitLineClamp: 2,
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
-        fontWeight: todo.stared ? '600' : 'default'
+        fontWeight: todo.starred ? "600" : "default",
       },
     };
     const deleteTodo = (e) => {

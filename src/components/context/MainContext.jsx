@@ -55,7 +55,7 @@ export const MainProvider = ({ children }) => {
         id: uuidv4(),
         title,
         completed: false,
-        stared: false
+        starred: false,
       };
       const orderTodos = [newTodo, ...todos]
       orderStarAndComplete(orderTodos)
@@ -83,7 +83,7 @@ export const MainProvider = ({ children }) => {
 
   const markStar = (id) => {
     const orderTodos = todos.map((todo) => {
-      if (todo.id === id) todo.stared = !todo.stared;
+      if (todo.id === id) todo.starred = !todo.starred;
       return todo;
     })
     orderStarAndComplete(orderTodos)
@@ -91,7 +91,7 @@ export const MainProvider = ({ children }) => {
   };
 
   const orderStarAndComplete = (todos) => {
-    todos.sort((x,y) => y.stared - x.stared)
+    todos.sort((x, y) => y.starred - x.starred);
     todos.sort((x,y) => x.completed - y.completed)
   }
 

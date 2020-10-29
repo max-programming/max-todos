@@ -55,7 +55,7 @@ export default function ActionsMenu({
         {["Star", "Edit", "Delete"].map((option) => (
           <MenuItem key={option} onClick={(e) => handleEvent(option, e)}>
             {option === "Star" ? (
-              todo.stared ? (
+              todo.starred ? (
                 <StarIcon style={{ color: "#FFCE49" }} />
               ) : (
                 <StarIconOutlined />
