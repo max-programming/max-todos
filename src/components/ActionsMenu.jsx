@@ -75,7 +75,7 @@ export default function ActionsMenu({
                   : "initial"
               }
             >
-              {option}
+              {option === "Star" ? (todo.starred ? "Unstar" : "Star") : option}
             </Typography>
           </MenuItem>
         ))}
