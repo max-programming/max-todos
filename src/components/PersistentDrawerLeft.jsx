@@ -20,10 +20,12 @@ import {
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TodoIcon from "@material-ui/icons/NotesOutlined";
-import AboutIcon from "@material-ui/icons/InfoOutlined";
+import AboutIconOutlined from "@material-ui/icons/InfoOutlined";
+import AboutIcon from "@material-ui/icons/Info";
 import MenuIcon from "@material-ui/icons/Menu";
 import BackIcon from "@material-ui/icons/ArrowBack";
-import SettingsIcon from "@material-ui/icons/SettingsOutlined";
+import SettingsIconOutlined from "@material-ui/icons/SettingsOutlined";
+import SettingsIcon from "@material-ui/icons/Settings";
 import { Link, useLocation } from "wouter";
 import clsx from "clsx";
 import React, { useState } from "react";
@@ -184,7 +186,17 @@ export default function PersistentDrawerLeft(props) {
                     <CustomLink href={`/${name.toLowerCase()}`} key={name}>
                       <Button
                         startIcon={
-                          name === "Settings" ? <SettingsIcon /> : <AboutIcon />
+                          name === "Settings" ? (
+                            location === "/settings" ? (
+                              <SettingsIcon />
+                            ) : (
+                              <SettingsIconOutlined />
+                            )
+                          ) : location === "/about" ? (
+                            <AboutIcon />
+                          ) : (
+                            <AboutIconOutlined />
+                          )
                         }
                         style={{ color: "white", margin: 5 }}
                       >
@@ -228,9 +240,9 @@ export default function PersistentDrawerLeft(props) {
                   {index === 0 ? (
                     <TodoIcon />
                   ) : index === 1 ? (
-                    <SettingsIcon />
+                    <SettingsIconOutlined />
                   ) : (
-                    <AboutIcon />
+                    <AboutIconOutlined />
                   )}
                 </ListItemIcon>
                 <ListItemText primary={text} />
