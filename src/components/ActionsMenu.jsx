@@ -4,7 +4,7 @@ import EditIcon from "@material-ui/icons/EditTwoTone";
 import MenuIcon from "@material-ui/icons/MoreHorizOutlined";
 import StarIconOutlined from "@material-ui/icons/StarTwoTone";
 import StarIcon from "@material-ui/icons/Star";
-import React from "react";
+import { useState } from "react";
 
 const ITEM_HEIGHT = 48;
 
@@ -14,7 +14,7 @@ export default function ActionsMenu({
   markStar,
   todo,
 }) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {

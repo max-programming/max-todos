@@ -1,5 +1,5 @@
 import { Container, Switch } from "@material-ui/core";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { MainContext } from "../context/MainContext";
 
 const Settings = () => {

@@ -28,7 +28,7 @@ import SettingsIconOutlined from "@material-ui/icons/SettingsOutlined";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { Link, useLocation } from "wouter";
 import clsx from "clsx";
-import React, { useState } from "react";
+import { useState } from "react";
 import CustomLink from "./CustomLink";
 
 const drawerWidth = 240;

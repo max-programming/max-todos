@@ -21,12 +21,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app",
-    "rules": {
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
-      "no-unused-vars": "off"
-    }
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
