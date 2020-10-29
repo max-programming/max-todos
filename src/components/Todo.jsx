@@ -11,7 +11,7 @@ import {
   Grid,
 } from "@material-ui/core";
 import { Draggable } from "react-beautiful-dnd";
-import { MainContext } from "./context/MainContext";
+import { MainContext } from "../context/MainContext";
 import ActionsMenu from "./ActionsMenu";
 
 const Todo = forwardRef(
