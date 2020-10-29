@@ -22,8 +22,9 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TodoIcon from "@material-ui/icons/NotesOutlined";
 import AboutIcon from "@material-ui/icons/InfoOutlined";
 import MenuIcon from "@material-ui/icons/Menu";
+import BackIcon from "@material-ui/icons/ArrowBack";
 import SettingsIcon from "@material-ui/icons/SettingsOutlined";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import clsx from "clsx";
 import React, { useState } from "react";
 import CustomLink from "./CustomLink";
@@ -105,6 +106,7 @@ export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [location] = useLocation();
   const matches = useMediaQuery("(max-width: 768px)");
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -125,29 +127,58 @@ export default function PersistentDrawerLeft(props) {
           })}
         >
           <Toolbar>
-            {matches && (
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                className={clsx(classes.menuButton, open && classes.hide)}
-                centerRipple={false}
-              >
-                <MenuIcon />
-              </IconButton>
+            {matches ? (
+              location === "/" ? (
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  className={clsx(classes.menuButton, open && classes.hide)}
+                  centerRipple={false}
+                >
+                  <MenuIcon />
+                </IconButton>
+              ) : (
+                <Link href="/">
+                  <IconButton
+                    color="inherit"
+                    aria-label="back"
+                    edge="start"
+                    className={clsx(classes.menuButton, open && classes.hide)}
+                    centerRipple={false}
+                  >
+                    <BackIcon />
+                  </IconButton>
+                </Link>
+              )
+            ) : (
+              ""
             )}
             {!open && (
               <>
-                <Link href="/">
+                {matches ? (
                   <Typography
                     variant="h6"
                     noWrap
                     style={{ flexGrow: 1, cursor: "pointer" }}
                   >
-                    Max Todo
+                    {location === "/"
+                      ? "MAX TODOS"
+                      : location.toUpperCase().replace("/", "")}
                   </Typography>
-                </Link>
+                ) : (
+                  <Link href="/">
+                    <Typography
+                      variant="h6"
+                      noWrap
+                      style={{ flexGrow: 1, cursor: "pointer" }}
+                    >
+                      MAX TODOS
+                    </Typography>
+                  </Link>
+                )}
+
                 {!matches &&
                   ["Settings", "About"].map((name, i) => (
                     <CustomLink href={`/${name.toLowerCase()}`} key={name}>

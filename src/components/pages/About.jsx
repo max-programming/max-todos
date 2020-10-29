@@ -7,18 +7,9 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
 
 const About = () => {
-  /* Links:
-    1. YouTube
-    2. Instagram
-    3. Facebook
-    4. Twitter
-    5. Blog
-    6. GitHub
-  */
   return (
     <>
       <Container>
-        <h1>About</h1>
         <p style={{ fontSize: "1.3rem" }}>
           <b>Max Todos</b> is an open-source project started by Usman Sabuwala.
           This app focuses on the ease of use of a Todo App. Write your todos,

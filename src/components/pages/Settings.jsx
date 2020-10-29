@@ -12,7 +12,6 @@ const Settings = () => {
   return (
     <>
       <Container>
-        <h1>Settings</h1>
         <h3>
           Dark Mode:
           <Switch onChange={changeTheme} checked={isDark} color="primary" />
