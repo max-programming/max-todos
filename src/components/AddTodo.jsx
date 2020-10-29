@@ -17,8 +17,8 @@ const AddTodo = ({ addTodo }) => {
     e.preventDefault();
     addTodo(text);
     setText("");
-    setOpen(true);
-  };
+    if (text.trim()) setOpen(true);
+   };
 
   return (
     <div>
