@@ -7,9 +7,11 @@ import {
   DialogTitle,
   Button,
   Divider,
+  useMediaQuery,
 } from "@material-ui/core";
 
 const DeleteConfirm = ({ open, close, yes }) => {
+  const matches = useMediaQuery("(max-width: 768px)");
   return (
     <Dialog open={open} onClose={close}>
       <DialogTitle>DELETE ITEM?</DialogTitle>
@@ -17,14 +19,16 @@ const DeleteConfirm = ({ open, close, yes }) => {
         <DialogContentText>
           Are you sure you want to delete this item?
         </DialogContentText>
-        <Divider />
-        <br />
-        <DialogContentText>
-          <span style={{ color: "green", fontWeight: "bold" }}>PROTIP:</span>
+        <div style={{ display: matches ? "none" : "block" }}>
+          <Divider />
           <br />
-          You can hold down shift when clicking the <b>delete button</b> to
-          bypass this confirmation entirely
-        </DialogContentText>
+          <DialogContentText>
+            <span style={{ color: "green", fontWeight: "bold" }}>PROTIP:</span>
+            <br />
+            You can hold down shift when clicking the <b>delete button</b> to
+            bypass this confirmation entirely
+          </DialogContentText>
+        </div>
       </DialogContent>
       <DialogActions>
         <Button onClick={close} color="primary">
