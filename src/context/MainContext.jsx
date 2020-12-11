@@ -15,6 +15,15 @@ export const MainProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("darkTheme")) || false
   );
 
+  const [isSmallText, setIsSmallText] = useState(
+    JSON.parse(localStorage.getItem("smallText")) || false
+  );
+
+  const changeSmallText = () => {
+    window.localStorage.setItem("smallText", !isSmallText);
+    setIsSmallText(!isSmallText);
+  };
+
   const [isDeleteConfirmation, setIsDeleteConfirmation] = useState(
     JSON.parse(localStorage.getItem("deleteConfirmation")) || false
   );
@@ -109,6 +118,8 @@ export const MainProvider = ({ children }) => {
       value={{
         todos,
         isDark,
+        isSmallText,
+        changeSmallText,
         isDeleteConfirmation,
         changeDeleteConfirm,
         setTodos,

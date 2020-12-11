@@ -31,7 +31,7 @@ const Todo = forwardRef(
     const matches = useMediaQuery("(max-width: 768px)");
     const [deleteOpen, setDeleteOpen] = useState(false);
     const [editOpen, setEditOpen] = useState(false);
-    const { isDeleteConfirmation } = useContext(MainContext);
+    const { isDeleteConfirmation, isSmallText } = useContext(MainContext);
     let checkedStyle = { textDecoration: "none" };
     if (todo.completed) checkedStyle.textDecoration = "line-through";
     else checkedStyle.textDecoration = "none";
@@ -52,6 +52,7 @@ const Todo = forwardRef(
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
         fontWeight: todo.starred ? "600" : "normal",
+        fontSize : isSmallText ? '17px' : '24px' // 기본 24px
       },
     };
     const deleteTodo = (e) => {

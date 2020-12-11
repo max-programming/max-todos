@@ -8,6 +8,8 @@ const Settings = () => {
     changeTheme,
     isDeleteConfirmation,
     changeDeleteConfirm,
+    isSmallText,
+    changeSmallText
   } = useContext(MainContext);
   return (
     <>
@@ -15,6 +17,14 @@ const Settings = () => {
         <h3>
           Dark Mode:
           <Switch onChange={changeTheme} checked={isDark} color="primary" />
+        </h3>
+        <h3>
+          Small Text Mode:
+          <Switch
+            onChange={changeSmallText}
+            checked={isSmallText}
+            color="primary"
+          />
         </h3>
         <h3>
           Disable Delete Confirmation:
