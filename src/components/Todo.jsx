@@ -52,7 +52,7 @@ const Todo = forwardRef(
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
         fontWeight: todo.starred ? "600" : "normal",
-        fontSize : isSmallText ? '17px' : '24px' // 기본 24px
+        fontSize : isSmallText ? '17px' : '24px'
       },
     };
     const deleteTodo = (e) => {
