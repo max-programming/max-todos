@@ -32,6 +32,7 @@ const MoreMenu = ({ isMobile }) => {
         aria-controls="long-menu"
         aria-haspopup="true"
         onClick={handleClick}
+        color="inherit"
       >
         {isMobile ? (
           <MoreVertIcon style={{ color: "white" }} />
