@@ -96,6 +96,7 @@ export const MainProvider = ({ children }) => {
   }
 
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
+  const deleteAll = () => setTodos([]);
   const moveTodo = (old, new_) => {
     const copy = JSON.parse(JSON.stringify(todos));
     const thing = JSON.parse(JSON.stringify(todos[old]));
@@ -114,11 +115,12 @@ export const MainProvider = ({ children }) => {
         setTodos,
         markComplete,
         delTodo,
+        deleteAll,
         editTodo,
         addTodo,
         changeTheme,
         moveTodo,
-        markStar
+        markStar,
       }}
     >
       {children}
