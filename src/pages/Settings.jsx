@@ -1,14 +1,13 @@
 import { Container, Switch } from "@material-ui/core";
 import { useContext } from "react";
-import { MainContext } from "../context/MainContext";
+import { ThemeContext } from "../context/ThemeContext";
+import { DeleteConfirmContext } from "../context/DeleteConfirmContext";
 
 const Settings = () => {
-  const {
-    isDark,
-    changeTheme,
-    isDeleteConfirmation,
-    changeDeleteConfirm,
-  } = useContext(MainContext);
+  const { isDeleteConfirmation, changeDeleteConfirm } = useContext(
+    DeleteConfirmContext
+  );
+  const { isDark, changeTheme } = useContext(ThemeContext);
   return (
     <>
       <Container>

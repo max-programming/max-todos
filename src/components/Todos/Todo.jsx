@@ -11,7 +11,7 @@ import {
   Grid,
 } from "@material-ui/core";
 import { Draggable } from "react-beautiful-dnd";
-import { MainContext } from "../../context/MainContext";
+import { DeleteConfirmContext } from "../../context/DeleteConfirmContext";
 import ActionsMenu from "../Actions/ActionsMenu";
 
 const Todo = forwardRef(
@@ -31,7 +31,7 @@ const Todo = forwardRef(
     const matches = useMediaQuery("(max-width: 768px)");
     const [deleteOpen, setDeleteOpen] = useState(false);
     const [editOpen, setEditOpen] = useState(false);
-    const { isDeleteConfirmation } = useContext(MainContext);
+    const { isDeleteConfirmation } = useContext(DeleteConfirmContext);
     let checkedStyle = { textDecoration: "none" };
     if (todo.completed) checkedStyle.textDecoration = "line-through";
     else checkedStyle.textDecoration = "none";

@@ -1,9 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-// import { v4 as uuidv4 } from "uuid";
-import {
-  enable as enableDarkMode,
-  disable as disableDarkMode,
-} from "darkreader";
 
 export const MainContext = createContext();
 
@@ -11,43 +6,10 @@ export const MainProvider = ({ children }) => {
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
-  const [isDark, setIsDark] = useState(
-    JSON.parse(localStorage.getItem("darkTheme")) || false
-  );
 
-  const [isDeleteConfirmation, setIsDeleteConfirmation] = useState(
-    JSON.parse(localStorage.getItem("deleteConfirmation")) || false
-  );
-
-  const changeDeleteConfirm = () => {
-    localStorage.setItem("deleteConfirmation", !isDeleteConfirmation);
-    setIsDeleteConfirmation(!isDeleteConfirmation);
-  };
-
-  const changeTheme = () => {
-    setIsDark(!isDark);
-    if (isDark) {
-      enableDarkMode({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10,
-      });
-    } else {
-      disableDarkMode();
-    }
-    localStorage.setItem("darkTheme", isDark);
-  };
   useEffect(() => {
-    if (isDark) {
-      enableDarkMode({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10,
-      });
-    } else disableDarkMode();
-    localStorage.setItem("darkTheme", JSON.stringify(isDark));
     localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos, isDark]);
+  }, [todos]);
 
   const addTodo = (title) => {
     if (title.trim()) {
@@ -109,16 +71,12 @@ export const MainProvider = ({ children }) => {
     <MainContext.Provider
       value={{
         todos,
-        isDark,
-        isDeleteConfirmation,
-        changeDeleteConfirm,
         setTodos,
         markComplete,
         delTodo,
         deleteAll,
         editTodo,
         addTodo,
-        changeTheme,
         moveTodo,
         markStar,
       }}
