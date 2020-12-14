@@ -1,7 +1,7 @@
 import { Typography, IconButton, Menu, MenuItem } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
 import EditIcon from "@material-ui/icons/EditTwoTone";
-import MenuIcon from "@material-ui/icons/MoreHorizOutlined";
+import useChangeMenuIcon from "../hooks/useChangeMenuIcon";
 import StarIconOutlined from "@material-ui/icons/StarTwoTone";
 import StarIcon from "@material-ui/icons/Star";
 import { useState } from "react";
@@ -16,7 +16,7 @@ export default function ActionsMenu({
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
+  const MenuIcon = useChangeMenuIcon();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };

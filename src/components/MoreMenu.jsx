@@ -1,14 +1,13 @@
 import { useState, useContext } from "react";
-import { IconButton, Menu, MenuItem } from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
+import useChangeMenuIcon from "../hooks/useChangeMenuIcon";
 import DeleteSweepIcon from "@material-ui/icons/DeleteSweepTwoTone";
 import { MainContext } from "../context/MainContext";
 
-const MoreMenu = ({ isMobile }) => {
+const MoreMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
+  const MenuIcon = useChangeMenuIcon();
   const { deleteAll } = useContext(MainContext);
 
   const handleClick = (event) => setAnchorEl(event.currentTarget);
@@ -17,7 +16,8 @@ const MoreMenu = ({ isMobile }) => {
   const options = [
     {
       name: "Delete All",
-      icon: <DeleteSweepIcon />,
+      color: "error",
+      icon: DeleteSweepIcon,
       method: () => {
         handleClose();
         deleteAll();
@@ -34,11 +34,7 @@ const MoreMenu = ({ isMobile }) => {
         onClick={handleClick}
         color="inherit"
       >
-        {isMobile ? (
-          <MoreVertIcon style={{ color: "white" }} />
-        ) : (
-          <MoreHorizIcon style={{ color: "white" }} />
-        )}
+        <MenuIcon />
       </IconButton>
       <Menu
         id="long-menu"
@@ -54,7 +50,8 @@ const MoreMenu = ({ isMobile }) => {
       >
         {options.map((option) => (
           <MenuItem key={option.name} onClick={option.method} color="long">
-            {option.icon}&nbsp;{option.name}
+            <option.icon color={option.color} /> &nbsp;
+            <Typography color={option.color}>{option.name}</Typography>
           </MenuItem>
         ))}
       </Menu>
