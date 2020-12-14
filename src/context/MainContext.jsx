@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import {
   enable as enableDarkMode,
   disable as disableDarkMode,
@@ -52,7 +52,7 @@ export const MainProvider = ({ children }) => {
   const addTodo = (title) => {
     if (title.trim()) {
       const newTodo = {
-        id: uuidv4(),
+        id: String(Math.random() * 5000),
         title,
         completed: false,
         starred: false,
