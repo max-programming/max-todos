@@ -9,7 +9,7 @@ export const MainContext = createContext();
 
 export const MainProvider = ({ children }) => {
   const [todos, setTodos] = useState(
-    JSON.parse(window.localStorage.getItem("todos")) || []
+    JSON.parse(localStorage.getItem("todos")) || []
   );
   const [isDark, setIsDark] = useState(
     JSON.parse(localStorage.getItem("darkTheme")) || false
@@ -20,7 +20,7 @@ export const MainProvider = ({ children }) => {
   );
 
   const changeDeleteConfirm = () => {
-    window.localStorage.setItem("deleteConfirmation", !isDeleteConfirmation);
+    localStorage.setItem("deleteConfirmation", !isDeleteConfirmation);
     setIsDeleteConfirmation(!isDeleteConfirmation);
   };
 
@@ -35,7 +35,7 @@ export const MainProvider = ({ children }) => {
     } else {
       disableDarkMode();
     }
-    window.localStorage.setItem("darkTheme", isDark);
+    localStorage.setItem("darkTheme", isDark);
   };
   useEffect(() => {
     if (isDark) {
@@ -45,8 +45,8 @@ export const MainProvider = ({ children }) => {
         sepia: 10,
       });
     } else disableDarkMode();
-    window.localStorage.setItem("darkTheme", JSON.stringify(isDark));
-    window.localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("darkTheme", JSON.stringify(isDark));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos, isDark]);
 
   const addTodo = (title) => {
@@ -57,8 +57,8 @@ export const MainProvider = ({ children }) => {
         completed: false,
         starred: false,
       };
-      const orderTodos = [newTodo, ...todos]
-      orderStarAndComplete(orderTodos)
+      const orderTodos = [newTodo, ...todos];
+      orderStarAndComplete(orderTodos);
       setTodos(orderTodos);
     }
   };
@@ -77,7 +77,7 @@ export const MainProvider = ({ children }) => {
       if (todo.id === id) todo.completed = !todo.completed;
       return todo;
     });
-    orderStarAndComplete(orderTodos)
+    orderStarAndComplete(orderTodos);
     setTodos(orderTodos);
   };
 
@@ -85,15 +85,15 @@ export const MainProvider = ({ children }) => {
     const orderTodos = todos.map((todo) => {
       if (todo.id === id) todo.starred = !todo.starred;
       return todo;
-    })
-    orderStarAndComplete(orderTodos)
+    });
+    orderStarAndComplete(orderTodos);
     setTodos(orderTodos);
   };
 
   const orderStarAndComplete = (todos) => {
     todos.sort((x, y) => y.starred - x.starred);
-    todos.sort((x,y) => x.completed - y.completed)
-  }
+    todos.sort((x, y) => x.completed - y.completed);
+  };
 
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
   const deleteAll = () => setTodos([]);

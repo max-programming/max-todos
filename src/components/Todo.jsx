@@ -1,5 +1,5 @@
 import { useState, useContext, forwardRef } from "react";
-import DeleteConfirm from "./DeleteConfirm";
+import { DeleteConfirm } from "./DeleteConfirm";
 import EditConfirm from "./EditConfirm";
 import {
   Card,
