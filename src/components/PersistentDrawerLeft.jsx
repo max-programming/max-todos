@@ -206,12 +206,11 @@ export default function PersistentDrawerLeft(props) {
                         </Button>
                       </CustomLink>
                     ))}
-                    <MoreMenu isMobile={false} />
                   </>
                 )}
+                {location === "/" && <MoreMenu />}
               </>
             )}
-            {matches && <MoreMenu isMobile={true} />}
           </Toolbar>
         </AppBar>
       </HideOnScroll>
