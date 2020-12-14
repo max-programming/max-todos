@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
 import DeleteSweepIcon from "@material-ui/icons/DeleteSweepTwoTone";
-import useChangeMenuIcon from "../hooks/useChangeMenuIcon";
-import { MainContext } from "../context/MainContext";
+import useChangeMenuIcon from "../../hooks/useChangeMenuIcon";
+import { MainContext } from "../../context/MainContext";
 import { DeleteAllConfirm } from "./DeleteConfirm";
 
 const MoreMenu = () => {

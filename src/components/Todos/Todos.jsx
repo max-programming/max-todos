@@ -1,13 +1,20 @@
-import { useContext, useState } from 'react';
-import { MainContext } from "../context/MainContext";
-import { Droppable, DragDropContext } from 'react-beautiful-dnd';
-import Todo from './Todo';
-import { Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
-import FlipMove from 'react-flip-move';
+import { useContext, useState } from "react";
+import { MainContext } from "../../context/MainContext";
+import { Droppable, DragDropContext } from "react-beautiful-dnd";
+import Todo from "./Todo";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import FlipMove from "react-flip-move";
 
 const Todos = () => {
-  const { todos, markComplete, delTodo, editTodo, moveTodo, markStar } = useContext(MainContext);
+  const {
+    todos,
+    markComplete,
+    delTodo,
+    editTodo,
+    moveTodo,
+    markStar,
+  } = useContext(MainContext);
   const [deleteSnackOpen, setDeleteSnackOpen] = useState(false);
   const [editSnackOpen, setEditSnackOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
@@ -18,7 +25,10 @@ const Todos = () => {
   };
   return (
     <>
-      <DragDropContext onBeforeDragStart={() => setDragging(true)} onDragEnd={onDragEnd}>
+      <DragDropContext
+        onBeforeDragStart={() => setDragging(true)}
+        onDragEnd={onDragEnd}
+      >
         <Droppable droppableId="0">
           {(p) => (
             <div {...p.droppableProps} ref={p.innerRef}>
@@ -49,9 +59,14 @@ const Todos = () => {
         open={deleteSnackOpen}
         autoHideDuration={4000}
         onClose={() => setDeleteSnackOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
-        <Alert elevation={6} variant="filled" onClose={() => setDeleteSnackOpen(false)} severity="success">
+        <Alert
+          elevation={6}
+          variant="filled"
+          onClose={() => setDeleteSnackOpen(false)}
+          severity="success"
+        >
           Successfully deleted item!
         </Alert>
       </Snackbar>
@@ -59,9 +74,14 @@ const Todos = () => {
         open={editSnackOpen}
         autoHideDuration={4000}
         onClose={() => setEditSnackOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
-        <Alert elevation={6} variant="filled" onClose={() => setEditSnackOpen(false)} severity="success">
+        <Alert
+          elevation={6}
+          variant="filled"
+          onClose={() => setEditSnackOpen(false)}
+          severity="success"
+        >
           Successfully edited item!
         </Alert>
       </Snackbar>

@@ -30,7 +30,7 @@ import { Link, useLocation } from "wouter";
 import clsx from "clsx";
 import { useState } from "react";
 import CustomLink from "./CustomLink";
-import MoreMenu from "./MoreMenu";
+import MoreMenu from "./Actions/MoreMenu";
 
 const drawerWidth = 240;
 

@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { MainContext } from "./context/MainContext";
-import AddTodo from "./components/AddTodo";
-import Todos from "./components/Todos";
-import Settings from "./pages/Settings";
-import About from "./pages/About";
-import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
 import { Route } from "wouter";
+import AddTodo from "./components/Todos/AddTodo";
+import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
+import Todos from "./components/Todos/Todos";
+import { MainContext } from "./context/MainContext";
+import About from "./pages/About";
+import Settings from "./pages/Settings";
 
 function App() {
   const { addTodo } = useContext(MainContext);

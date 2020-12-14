@@ -1,7 +1,7 @@
 import { Typography, IconButton, Menu, MenuItem } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
 import EditIcon from "@material-ui/icons/EditTwoTone";
-import useChangeMenuIcon from "../hooks/useChangeMenuIcon";
+import useChangeMenuIcon from "../../hooks/useChangeMenuIcon";
 import StarIconOutlined from "@material-ui/icons/StarTwoTone";
 import StarIcon from "@material-ui/icons/Star";
 import { useState } from "react";
