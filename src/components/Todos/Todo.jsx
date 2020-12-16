@@ -13,6 +13,7 @@ import {
 import { Draggable } from "react-beautiful-dnd";
 import { DeleteConfirmContext } from "../../context/DeleteConfirmContext";
 import ActionsMenu from "../Actions/ActionsMenu";
+import { SmallTextContext } from "../../context/SmallTextContext";
 
 const Todo = forwardRef(
   (
@@ -32,6 +33,7 @@ const Todo = forwardRef(
     const [deleteOpen, setDeleteOpen] = useState(false);
     const [editOpen, setEditOpen] = useState(false);
     const { isDeleteConfirmation } = useContext(DeleteConfirmContext);
+    const { isSmallText } = useContext(SmallTextContext)
     let checkedStyle = { textDecoration: "none" };
     if (todo.completed) checkedStyle.textDecoration = "line-through";
     else checkedStyle.textDecoration = "none";
@@ -52,6 +54,7 @@ const Todo = forwardRef(
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
         fontWeight: todo.starred ? "600" : "normal",
+        fontSize : matches ? "17px" : isSmallText ? "17px" : "24px"
       },
     };
     const deleteTodo = (e) => {
