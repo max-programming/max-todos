@@ -1,4 +1,4 @@
-import { Container, Switch } from "@material-ui/core";
+import { Container, Switch, useMediaQuery } from "@material-ui/core";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { DeleteConfirmContext } from "../context/DeleteConfirmContext";
@@ -10,6 +10,8 @@ const Settings = () => {
   );
   const { isDark, changeTheme } = useContext(ThemeContext);
   const {isSmallText, changeSmallText} = useContext(SmallTextContext)
+  const matches = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
       <Container>
@@ -23,6 +25,7 @@ const Settings = () => {
             onChange={changeSmallText}
             checked={isSmallText}
             color="primary"
+            disabled={matches}
           />
         </h3>
         <h3>
