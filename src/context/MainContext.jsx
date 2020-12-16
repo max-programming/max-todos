@@ -1,73 +1,26 @@
 import { createContext, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
-import {
-  enable as enableDarkMode,
-  disable as disableDarkMode,
-} from "darkreader";
 
 export const MainContext = createContext();
 
 export const MainProvider = ({ children }) => {
   const [todos, setTodos] = useState(
-    JSON.parse(window.localStorage.getItem("todos")) || []
-  );
-  const [isDark, setIsDark] = useState(
-    JSON.parse(localStorage.getItem("darkTheme")) || false
+    JSON.parse(localStorage.getItem("todos")) || []
   );
 
-  const [isSmallText, setIsSmallText] = useState(
-    JSON.parse(localStorage.getItem("smallText")) || false
-  );
-
-  const changeSmallText = () => {
-    window.localStorage.setItem("smallText", !isSmallText);
-    setIsSmallText(!isSmallText);
-  };
-
-  const [isDeleteConfirmation, setIsDeleteConfirmation] = useState(
-    JSON.parse(localStorage.getItem("deleteConfirmation")) || false
-  );
-
-  const changeDeleteConfirm = () => {
-    window.localStorage.setItem("deleteConfirmation", !isDeleteConfirmation);
-    setIsDeleteConfirmation(!isDeleteConfirmation);
-  };
-
-  const changeTheme = () => {
-    setIsDark(!isDark);
-    if (isDark) {
-      enableDarkMode({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10,
-      });
-    } else {
-      disableDarkMode();
-    }
-    window.localStorage.setItem("darkTheme", isDark);
-  };
   useEffect(() => {
-    if (isDark) {
-      enableDarkMode({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10,
-      });
-    } else disableDarkMode();
-    window.localStorage.setItem("darkTheme", JSON.stringify(isDark));
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos, isDark]);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (title) => {
     if (title.trim()) {
       const newTodo = {
-        id: uuidv4(),
+        id: String(Math.random() * 5000),
         title,
         completed: false,
         starred: false,
       };
-      const orderTodos = [newTodo, ...todos]
-      orderStarAndComplete(orderTodos)
+      const orderTodos = [newTodo, ...todos];
+      orderStarAndComplete(orderTodos);
       setTodos(orderTodos);
     }
   };
@@ -86,7 +39,7 @@ export const MainProvider = ({ children }) => {
       if (todo.id === id) todo.completed = !todo.completed;
       return todo;
     });
-    orderStarAndComplete(orderTodos)
+    orderStarAndComplete(orderTodos);
     setTodos(orderTodos);
   };
 
@@ -94,17 +47,18 @@ export const MainProvider = ({ children }) => {
     const orderTodos = todos.map((todo) => {
       if (todo.id === id) todo.starred = !todo.starred;
       return todo;
-    })
-    orderStarAndComplete(orderTodos)
+    });
+    orderStarAndComplete(orderTodos);
     setTodos(orderTodos);
   };
 
   const orderStarAndComplete = (todos) => {
     todos.sort((x, y) => y.starred - x.starred);
-    todos.sort((x,y) => x.completed - y.completed)
-  }
+    todos.sort((x, y) => x.completed - y.completed);
+  };
 
   const delTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
+  const deleteAll = () => setTodos([]);
   const moveTodo = (old, new_) => {
     const copy = JSON.parse(JSON.stringify(todos));
     const thing = JSON.parse(JSON.stringify(todos[old]));
@@ -117,19 +71,14 @@ export const MainProvider = ({ children }) => {
     <MainContext.Provider
       value={{
         todos,
-        isDark,
-        isSmallText,
-        changeSmallText,
-        isDeleteConfirmation,
-        changeDeleteConfirm,
         setTodos,
         markComplete,
         delTodo,
+        deleteAll,
         editTodo,
         addTodo,
-        changeTheme,
         moveTodo,
-        markStar
+        markStar,
       }}
     >
       {children}

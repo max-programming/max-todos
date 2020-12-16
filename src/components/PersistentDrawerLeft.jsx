@@ -30,6 +30,7 @@ import { Link, useLocation } from "wouter";
 import clsx from "clsx";
 import { useState } from "react";
 import CustomLink from "./CustomLink";
+import MoreMenu from "./Actions/MoreMenu";
 
 const drawerWidth = 240;
 
@@ -128,7 +129,7 @@ export default function PersistentDrawerLeft(props) {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar>
+          <Toolbar style={{ paddingRight: matches ? 8 : 10 }}>
             {matches ? (
               location === "/" ? (
                 <IconButton
@@ -181,29 +182,33 @@ export default function PersistentDrawerLeft(props) {
                   </Link>
                 )}
 
-                {!matches &&
-                  ["Settings", "About"].map((name, i) => (
-                    <CustomLink href={`/${name.toLowerCase()}`} key={name}>
-                      <Button
-                        startIcon={
-                          name === "Settings" ? (
-                            location === "/settings" ? (
-                              <SettingsIcon />
+                {!matches && (
+                  <>
+                    {["Settings", "About"].map((name, i) => (
+                      <CustomLink href={`/${name.toLowerCase()}`} key={name}>
+                        <Button
+                          startIcon={
+                            name === "Settings" ? (
+                              location === "/settings" ? (
+                                <SettingsIcon />
+                              ) : (
+                                <SettingsIconOutlined />
+                              )
+                            ) : location === "/about" ? (
+                              <AboutIcon />
                             ) : (
-                              <SettingsIconOutlined />
+                              <AboutIconOutlined />
                             )
-                          ) : location === "/about" ? (
-                            <AboutIcon />
-                          ) : (
-                            <AboutIconOutlined />
-                          )
-                        }
-                        style={{ color: "white", margin: 5 }}
-                      >
-                        {name}
-                      </Button>
-                    </CustomLink>
-                  ))}
+                          }
+                          style={{ color: "white", margin: 5 }}
+                        >
+                          {name}
+                        </Button>
+                      </CustomLink>
+                    ))}
+                  </>
+                )}
+                {location === "/" && <MoreMenu />}
               </>
             )}
           </Toolbar>
