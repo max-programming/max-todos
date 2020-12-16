@@ -2,12 +2,14 @@ import { Container, Switch } from "@material-ui/core";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { DeleteConfirmContext } from "../context/DeleteConfirmContext";
+import { SmallTextContext } from "../context/SmallTextContext";
 
 const Settings = () => {
   const { isDeleteConfirmation, changeDeleteConfirm } = useContext(
     DeleteConfirmContext
   );
   const { isDark, changeTheme } = useContext(ThemeContext);
+  const {isSmallText, changeSmallText} = useContext(SmallTextContext)
   return (
     <>
       <Container>
@@ -37,3 +39,5 @@ const Settings = () => {
 };
 
 export default Settings;
+
+
