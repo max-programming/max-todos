@@ -14,6 +14,7 @@ import { Draggable } from "react-beautiful-dnd";
 import { DeleteConfirmContext } from "../../context/DeleteConfirmContext";
 import ActionsMenu from "../Actions/ActionsMenu";
 import { SmallTextContext } from "../../context/SmallTextContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Todo = forwardRef(
   (
@@ -34,6 +35,7 @@ const Todo = forwardRef(
     const [editOpen, setEditOpen] = useState(false);
     const { isDeleteConfirmation } = useContext(DeleteConfirmContext);
     const { isSmallText } = useContext(SmallTextContext)
+    const { isDark } = useContext(ThemeContext)
     let checkedStyle = { textDecoration: "none" };
     if (todo.completed) checkedStyle.textDecoration = "line-through";
     else checkedStyle.textDecoration = "none";
@@ -57,6 +59,11 @@ const Todo = forwardRef(
         fontSize : matches ? "17px" : isSmallText ? "17px" : "24px"
       },
     };
+
+    if(todo.starred) {
+      styles.text.color = isDark ? "#ffe066" : "#3f51b5"
+    }
+
     const deleteTodo = (e) => {
       if (e.shiftKey || isDeleteConfirmation) {
         delTodo(todo.id);
