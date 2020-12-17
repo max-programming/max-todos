@@ -1,11 +1,21 @@
-# 🖊️ Todo App built using [React.js](https://reactjs.org/) and [Material UI](https://material-ui.com/)
+
+<h1 align="center">
+  Max Todos 📝
+</h1>
+
+<p align="center">
+  🖊️ Todo App built using <a href="https://reactjs.org/">React.js</a> and <a href="https://material-ui.com/">Material UI</a>
+</p>
+<p align="center">
 <a href="https://gitmoji.carloscuesta.me">
   <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
 </a>
-
+  
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
+
 ## This is a super simple Todo App built using React.js and styled using Material UI.
 
 It uses the [Context API](https://reactjs.org/docs/context.html) to manage state, [Material UI](https://material-ui.com/) for design, [Wouter](https://github.com/molefrog/wouter) for routing, [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store todos and Dark Mode support with [Dark Reader](https://darkreader.org/).
@@ -23,7 +33,7 @@ It uses the [Context API](https://reactjs.org/docs/context.html) to manage state
 ## 🧠 Features in mind
 
 - [ ] Use [Material UI's Dark Mode](https://material-ui.com/customization/palette/#user-preference)
-- [ ] Set the dark mode as per user's system theme
+- [ ] Set the dark mode as per user's system theme. More at [#43](https://github.com/max-programming/max-todos/issues/43)
 - [ ] Improve the app using Lighthouse suggestions. More at [#22](https://github.com/max-programming/max-todos/issues/22)
 
 ## 🏗️ To build it
