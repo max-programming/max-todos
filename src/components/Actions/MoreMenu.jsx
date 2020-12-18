@@ -10,7 +10,7 @@ const MoreMenu = () => {
   const [deleteOpen, setDeleteOpen] = useState(false);
   const open = Boolean(anchorEl);
   const MenuIcon = useChangeMenuIcon();
-  const { deleteAll } = useContext(MainContext);
+  const { todos, deleteAll } = useContext(MainContext);
 
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
@@ -19,6 +19,7 @@ const MoreMenu = () => {
     {
       name: "Delete All",
       color: "error",
+      disabled: todos.length === 0,
       icon: DeleteSweepIcon,
       method: () => {
         handleClose();
@@ -51,7 +52,11 @@ const MoreMenu = () => {
         }}
       >
         {options.map((option) => (
-          <MenuItem key={option.name} onClick={option.method}>
+          <MenuItem
+            key={option.name}
+            disabled={option.disabled}
+            onClick={option.method}
+          >
             <option.icon color={option.color} /> &nbsp;
             <Typography color={option.color}>{option.name}</Typography>
           </MenuItem>
