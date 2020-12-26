@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  🖊️ Todo App built using <a href="https://reactjs.org/">React.js</a> and <a href="https://material-ui.com/">Material UI</a>
+  🖊️ Todo App built using <a href="https://reactjs.org/">React</a> and <a href="https://material-ui.com/">Material UI</a>
 </p>
 <p align="center">
 <a href="https://gitmoji.carloscuesta.me">
@@ -18,7 +18,7 @@
 
 ## This is a super simple Todo App built using React.js and styled using Material UI.
 
-It uses the [Context API](https://reactjs.org/docs/context.html) to manage state, [Material UI](https://material-ui.com/) for design, [Wouter](https://github.com/molefrog/wouter) for routing, [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store todos and Dark Mode support with [Dark Reader](https://darkreader.org/).
+It uses [TypeScript](https://www.typescriptlang.org/), [Context API](https://reactjs.org/docs/context.html) to manage state, [Material UI](https://material-ui.com/) for design, [Wouter](https://github.com/molefrog/wouter) for routing, [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store todos and Dark Mode support with [Dark Reader](https://darkreader.org/).
 
 ### You can view it here: https://maxtodos.netlify.app/
 
