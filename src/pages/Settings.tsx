@@ -7,9 +7,9 @@ import { SmallTextContext } from "../context/SmallTextContext";
 const Settings = () => {
   const { isDeleteConfirmation, changeDeleteConfirm } = useContext(
     DeleteConfirmContext
-  );
-  const { isDark, changeTheme } = useContext(ThemeContext);
-  const {isSmallText, changeSmallText} = useContext(SmallTextContext)
+  )!;
+  const { isDark, changeTheme } = useContext(ThemeContext)!;
+  const { isSmallText, changeSmallText } = useContext(SmallTextContext)!;
   const matches = useMediaQuery("(max-width: 768px)");
 
   return (
@@ -42,5 +42,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
-

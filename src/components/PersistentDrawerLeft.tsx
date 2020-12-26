@@ -17,15 +17,17 @@ import {
   useScrollTrigger,
   useMediaQuery,
 } from "@material-ui/core";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import TodoIcon from "@material-ui/icons/NotesOutlined";
-import AboutIconOutlined from "@material-ui/icons/InfoOutlined";
-import AboutIcon from "@material-ui/icons/Info";
-import MenuIcon from "@material-ui/icons/Menu";
-import BackIcon from "@material-ui/icons/ArrowBack";
-import SettingsIconOutlined from "@material-ui/icons/SettingsOutlined";
-import SettingsIcon from "@material-ui/icons/Settings";
+import {
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon,
+  NotesOutlined as TodoIcon,
+  InfoOutlined as AboutIconOutlined,
+  Info as AboutIcon,
+  Menu as MenuIcon,
+  ArrowBack as BackIcon,
+  SettingsOutlined as SettingsIconOutlined,
+  Settings as SettingsIcon,
+} from "@material-ui/icons";
 import { Link, useLocation } from "wouter";
 import clsx from "clsx";
 import { useState } from "react";
@@ -91,7 +93,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HideOnScroll(props) {
+interface Props {
+  window?: () => Window;
+  children: React.ReactElement;
+}
+
+function HideOnScroll(props: Props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
@@ -105,7 +112,7 @@ function HideOnScroll(props) {
   );
 }
 
-export default function PersistentDrawerLeft(props) {
+export default function PersistentDrawerLeft(props: any) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);

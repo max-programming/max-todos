@@ -1,6 +1,13 @@
+import React from "react";
 import { useRoute, Link } from "wouter";
 
-const CustomLink = (props) => {
+interface Props {
+  href: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+
+const CustomLink = (props: Props) => {
   const [isActive] = useRoute(props.href);
   const activeObject = {
     color: "#3f51b5",

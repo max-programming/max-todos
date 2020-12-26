@@ -1,25 +1,70 @@
+import { TodoType } from "../../types";
 import { Typography, IconButton, Menu, MenuItem } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
-import EditIcon from "@material-ui/icons/EditTwoTone";
+import {
+  DeleteTwoTone as DeleteIcon,
+  EditTwoTone as EditIcon,
+  StarTwoTone as StarIconOutlined,
+  Star as StarIcon,
+  SvgIconComponent,
+} from "@material-ui/icons";
 import useChangeMenuIcon from "../../hooks/useChangeMenuIcon";
-import StarIconOutlined from "@material-ui/icons/StarTwoTone";
-import StarIcon from "@material-ui/icons/Star";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const ITEM_HEIGHT = 48;
+
+interface Option {
+  name: string;
+  customColor?: string | undefined;
+  iconColor?:
+    | "error"
+    | "action"
+    | "inherit"
+    | "disabled"
+    | "primary"
+    | "secondary"
+    | undefined;
+  textColor?:
+    | "inherit"
+    | "initial"
+    | "error"
+    | "primary"
+    | "secondary"
+    | "textPrimary"
+    | "textSecondary"
+    | undefined;
+  icon: SvgIconComponent;
+  method: (e?: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+}
+
+interface Props {
+  deleteTodo: (e: any) => void;
+  setEditOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  markStar: (id: string) => void;
+  todo: TodoType;
+}
+
+enum OptionName {
+  STAR = "Star",
+  UNSTAR = "Unstar",
+  EDIT = "Edit",
+  DELETE = "Delete",
+}
 
 export default function ActionsMenu({
   deleteTodo,
   setEditOpen,
   markStar,
   todo,
-}) {
-  const [anchorEl, setAnchorEl] = useState(null);
+}: Props) {
+  const [anchorEl, setAnchorEl] = useState<
+    (EventTarget & HTMLButtonElement) | null
+  >(null);
   const open = Boolean(anchorEl);
   const MenuIcon = useChangeMenuIcon();
-  const options = [
+
+  const options: Option[] = [
     {
-      name: todo.starred ? "Unstar" : "Star",
+      name: todo.starred ? OptionName.UNSTAR : OptionName.STAR,
       customColor: todo.starred ? "#CCA43A" : "#000",
       icon: todo.starred ? StarIcon : StarIconOutlined,
       method: () => {
@@ -28,8 +73,9 @@ export default function ActionsMenu({
       },
     },
     {
-      name: "Edit",
-      color: "primary",
+      name: OptionName.EDIT,
+      iconColor: "primary",
+      textColor: "primary",
       icon: EditIcon,
       method: () => {
         setEditOpen(true);
@@ -37,8 +83,9 @@ export default function ActionsMenu({
       },
     },
     {
-      name: "Delete",
-      color: "error",
+      name: OptionName.DELETE,
+      iconColor: "error",
+      textColor: "error",
       icon: DeleteIcon,
       method: (e) => {
         deleteTodo(e);
@@ -46,11 +93,11 @@ export default function ActionsMenu({
       },
     },
   ];
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setAnchorEl(e.currentTarget);
   };
 
-  const handleEvent = (option, e) => {
+  const handleEvent = (option: OptionName, e: any) => {
     if (option === "Star") markStar(todo.id);
     else if (option === "Edit") setEditOpen(true);
     else if (option === "Delete") deleteTodo(e);
@@ -84,13 +131,13 @@ export default function ActionsMenu({
         {options.map((option) => (
           <MenuItem key={option.name} onClick={option.method}>
             <option.icon
-              color={option.color && option.color}
-              style={{ color: !option.color && option.customColor }}
+              color={option.iconColor}
+              htmlColor={option.customColor}
             />
             &nbsp;
             <Typography
-              color={option.color && option.color}
-              style={{ color: !option.color && option.customColor }}
+              color={option.textColor}
+              style={{ color: option.customColor }}
             >
               {option.name}
             </Typography>

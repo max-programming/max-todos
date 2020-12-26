@@ -1,24 +1,55 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
-import DeleteSweepIcon from "@material-ui/icons/DeleteSweepTwoTone";
+import {
+  DeleteSweepTwoTone as DeleteSweepIcon,
+  SvgIconComponent,
+} from "@material-ui/icons";
 import useChangeMenuIcon from "../../hooks/useChangeMenuIcon";
 import { MainContext } from "../../context/MainContext";
 import { DeleteAllConfirm } from "./DeleteConfirm";
 
 const MoreMenu = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<
+    (EventTarget & HTMLButtonElement) | null
+  >(null);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const open = Boolean(anchorEl);
   const MenuIcon = useChangeMenuIcon();
-  const { todos, deleteAll } = useContext(MainContext);
+  const { todos, deleteAll } = useContext(MainContext)!;
 
-  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+    setAnchorEl(e.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
-  const options = [
+  interface Option {
+    name: string;
+    iconColor:
+      | "error"
+      | "action"
+      | "inherit"
+      | "disabled"
+      | "primary"
+      | "secondary"
+      | undefined;
+    textColor:
+      | "error"
+      | "inherit"
+      | "primary"
+      | "secondary"
+      | "initial"
+      | "textPrimary"
+      | "textSecondary"
+      | undefined;
+    disabled: boolean;
+    icon: SvgIconComponent;
+    method: () => void;
+  }
+
+  const options: Option[] = [
     {
       name: "Delete All",
-      color: "error",
+      iconColor: "error",
+      textColor: "error",
       disabled: todos.length === 0,
       icon: DeleteSweepIcon,
       method: () => {
@@ -57,8 +88,8 @@ const MoreMenu = () => {
             disabled={option.disabled}
             onClick={option.method}
           >
-            <option.icon color={option.color} /> &nbsp;
-            <Typography color={option.color}>{option.name}</Typography>
+            <option.icon color={option.iconColor} /> &nbsp;
+            <Typography color={option.textColor}>{option.name}</Typography>
           </MenuItem>
         ))}
       </Menu>

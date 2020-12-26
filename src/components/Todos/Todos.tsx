@@ -1,24 +1,17 @@
 import { useContext, useState } from "react";
 import { MainContext } from "../../context/MainContext";
-import { Droppable, DragDropContext } from "react-beautiful-dnd";
+import { Droppable, DragDropContext, DropResult } from "react-beautiful-dnd";
 import Todo from "./Todo";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import FlipMove from "react-flip-move";
 
 const Todos = () => {
-  const {
-    todos,
-    markComplete,
-    delTodo,
-    editTodo,
-    moveTodo,
-    markStar,
-  } = useContext(MainContext);
+  const { todos, moveTodo } = useContext(MainContext)!;
   const [deleteSnackOpen, setDeleteSnackOpen] = useState(false);
   const [editSnackOpen, setEditSnackOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
-  const onDragEnd = (x) => {
+  const onDragEnd = (x: DropResult) => {
     if (!x.destination) return console.log(x);
     moveTodo(x.source.index, x.destination.index);
     setTimeout(() => setDragging(false), 200);
@@ -38,10 +31,6 @@ const Todos = () => {
                     <Todo
                       todo={todo}
                       key={todo.id}
-                      markComplete={markComplete}
-                      delTodo={delTodo}
-                      editTodo={editTodo}
-                      markStar={markStar}
                       onDelete={() => setDeleteSnackOpen(true)}
                       index={i}
                       onEdit={() => setEditSnackOpen(true)}

@@ -9,7 +9,13 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 
-export const DeleteConfirm = ({ open, close, yes }) => {
+interface Props {
+  open: boolean;
+  close: () => void;
+  yes: () => void;
+}
+
+export const DeleteConfirm = ({ open, close, yes }: Props) => {
   const matches = useMediaQuery("(max-width: 768px)");
   return (
     <Dialog open={open} onClose={close}>
@@ -41,7 +47,7 @@ export const DeleteConfirm = ({ open, close, yes }) => {
   );
 };
 
-export const DeleteAllConfirm = ({ open, close, yes }) => {
+export const DeleteAllConfirm = ({ open, close, yes }: Props) => {
   return (
     <Dialog open={open} onClose={close}>
       <DialogTitle>DELETE ALL ITEMS?</DialogTitle>
@@ -61,4 +67,3 @@ export const DeleteAllConfirm = ({ open, close, yes }) => {
     </Dialog>
   );
 };
-

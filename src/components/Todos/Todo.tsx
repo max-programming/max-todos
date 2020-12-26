@@ -1,4 +1,5 @@
-import { useState, useContext, forwardRef } from "react";
+import { TodoType } from "../../types";
+import React, { useState, useContext, forwardRef } from "react";
 import { DeleteConfirm } from "../Actions/DeleteConfirm";
 import EditConfirm from "../Actions/EditConfirm";
 import {
@@ -15,32 +16,31 @@ import { DeleteConfirmContext } from "../../context/DeleteConfirmContext";
 import ActionsMenu from "../Actions/ActionsMenu";
 import { SmallTextContext } from "../../context/SmallTextContext";
 import { ThemeContext } from "../../context/ThemeContext";
+import { MainContext } from "../../context/MainContext";
+
+interface Props {
+  todo: TodoType;
+  index: number;
+  onDelete: () => void;
+  onEdit: () => void;
+}
 
 const Todo = forwardRef(
-  (
-    {
-      todo,
-      markComplete,
-      delTodo,
-      editTodo,
-      index,
-      onDelete,
-      onEdit,
-      markStar,
-    },
-    ref
-  ) => {
+  ({ todo, index, onDelete, onEdit }: Props, ref: any) => {
+    const { markComplete, delTodo, editTodo, markStar } = useContext(
+      MainContext
+    )!;
     const matches = useMediaQuery("(max-width: 768px)");
     const [deleteOpen, setDeleteOpen] = useState(false);
     const [editOpen, setEditOpen] = useState(false);
-    const { isDeleteConfirmation } = useContext(DeleteConfirmContext);
-    const { isSmallText } = useContext(SmallTextContext)
-    const { isDark } = useContext(ThemeContext)
+    const { isDeleteConfirmation } = useContext(DeleteConfirmContext)!;
+    const { isSmallText } = useContext(SmallTextContext)!;
+    const { isDark } = useContext(ThemeContext)!;
     let checkedStyle = { textDecoration: "none" };
     if (todo.completed) checkedStyle.textDecoration = "line-through";
     else checkedStyle.textDecoration = "none";
-    // todo.completed ? (checkedStyle.textDecoration = "line-through") : null;
-    const styles = {
+
+    const styles: any = {
       card: {
         marginTop: matches ? 20 : 35,
         background: "lightgray",
@@ -55,16 +55,17 @@ const Todo = forwardRef(
         WebkitLineClamp: 2,
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
-        fontWeight: todo.starred ? "600" : "normal",
-        fontSize : matches ? "17px" : isSmallText ? "17px" : "24px"
+        fontWeight: todo.starred ? 600 : "normal",
+        fontSize: matches ? "17px" : isSmallText ? "17px" : "24px",
+        color: "",
       },
     };
 
-    if(todo.starred) {
-      styles.text.color = isDark ? "#ffe066" : "#3f51b5"
+    if (todo.starred) {
+      styles.text.color = isDark ? "#ffe066" : "#3f51b5";
     }
 
-    const deleteTodo = (e) => {
+    const deleteTodo = (e: any) => {
       if (e.shiftKey || isDeleteConfirmation) {
         delTodo(todo.id);
         onDelete();
@@ -132,7 +133,7 @@ const Todo = forwardRef(
           close={() => setDeleteOpen(false)}
         />
         <EditConfirm
-          yes={(val) => {
+          yes={(val: string) => {
             setEditOpen(false);
             setTimeout(() => {
               editTodo(todo.id, val);

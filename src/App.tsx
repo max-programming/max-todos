@@ -8,7 +8,7 @@ import About from "./pages/About";
 import Settings from "./pages/Settings";
 
 function App() {
-  const { addTodo } = useContext(MainContext);
+  const { addTodo } = useContext(MainContext)!;
 
   return (
     <div style={{ height: "100vh" }}>

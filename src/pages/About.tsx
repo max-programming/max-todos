@@ -1,9 +1,11 @@
 import { Container } from "@material-ui/core";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import {
+  Twitter,
+  GitHub,
+  Facebook,
+  YouTube,
+  Instagram,
+} from "@material-ui/icons";
 
 const About = () => {
   return (
@@ -25,7 +27,7 @@ const About = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <TwitterIcon fontSize="large" />
+          <Twitter fontSize="large" />
         </a>
         <a
           href="https://github.com/max-programming"
@@ -37,7 +39,7 @@ const About = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <GitHubIcon fontSize="large" />
+          <GitHub fontSize="large" />
         </a>
         <a
           href="https://www.facebook.com/usman.sabuwala.7"
@@ -49,7 +51,7 @@ const About = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FacebookIcon fontSize="large" />
+          <Facebook fontSize="large" />
         </a>
         <a
           href="https://youtube.com/MaxProgramming"
@@ -61,7 +63,7 @@ const About = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <YouTubeIcon fontSize="large" />
+          <YouTube fontSize="large" />
         </a>
         <a
           href="https://www.instagram.com/usmansabuwala7/"
@@ -73,7 +75,7 @@ const About = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <InstagramIcon fontSize="large" />
+          <Instagram fontSize="large" />
         </a>
       </Container>
     </>

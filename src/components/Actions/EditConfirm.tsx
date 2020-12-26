@@ -9,7 +9,14 @@ import {
   Button,
 } from "@material-ui/core";
 
-const EditConfirm = ({ open, close, value, yes }) => {
+interface Props {
+  yes: (val: string) => void;
+  open: boolean;
+  close: () => void;
+  value: string;
+}
+
+const EditConfirm = ({ open, close, value, yes }: Props) => {
   const [newValue, setNewValue] = useState(value);
   const onClose = () => {
     setNewValue(value);

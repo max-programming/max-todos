@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FC, ChangeEvent } from "react";
 import {
   FormControl,
   Container,
@@ -9,16 +9,18 @@ import {
 import { Alert } from "@material-ui/lab";
 import { Add } from "@material-ui/icons";
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo: FC<{ addTodo: (text: string) => void }> = ({ addTodo }) => {
   const [text, setText] = useState("");
   const [open, setOpen] = useState(false);
-  const handleChange = (e) => setText(e.target.value);
-  const createTodo = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setText(e.target.value);
+  const createTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addTodo(text);
     setText("");
     if (text.trim()) setOpen(true);
-   };
+  };
 
   return (
     <div>
