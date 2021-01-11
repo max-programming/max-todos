@@ -67,13 +67,13 @@ const Todo = forwardRef(
 
     const deleteTodo = (e: any) => {
       if (e.shiftKey || isDeleteConfirmation) {
-        delTodo(todo.id);
+        delTodo(todo._id);
         onDelete();
       } else setDeleteOpen(true);
     };
     return (
       <Container ref={ref}>
-        <Draggable draggableId={todo.id} index={index}>
+        <Draggable draggableId={todo._id} index={index}>
           {(p) => (
             <Card
               className="todo-card"
@@ -100,7 +100,7 @@ const Todo = forwardRef(
                         checked={todo.completed}
                         color="primary"
                         style={{ marginRight: 5 }}
-                        onClick={() => markComplete(todo.id)}
+                        onClick={() => markComplete(todo._id, todo.completed)}
                         centerRipple={false}
                       />
                     </Grid>
@@ -125,7 +125,7 @@ const Todo = forwardRef(
           yes={() => {
             setDeleteOpen(false);
             setTimeout(() => {
-              delTodo(todo.id);
+              delTodo(todo._id);
               onDelete();
             }, 200);
           }}
@@ -136,7 +136,7 @@ const Todo = forwardRef(
           yes={(val: string) => {
             setEditOpen(false);
             setTimeout(() => {
-              editTodo(todo.id, val);
+              editTodo(todo._id, val);
               onEdit();
             }, 200);
           }}

@@ -39,7 +39,7 @@ interface Option {
 interface Props {
   deleteTodo: (e: any) => void;
   setEditOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  markStar: (id: string) => void;
+  markStar: (id: string, starred: boolean) => void;
   todo: TodoType;
 }
 
@@ -68,7 +68,7 @@ export default function ActionsMenu({
       customColor: todo.starred ? "#CCA43A" : "#000",
       icon: todo.starred ? StarIcon : StarIconOutlined,
       method: () => {
-        markStar(todo.id);
+        markStar(todo._id, todo.starred);
         setAnchorEl(null);
       },
     },
@@ -87,7 +87,7 @@ export default function ActionsMenu({
       iconColor: "error",
       textColor: "error",
       icon: DeleteIcon,
-      method: (e) => {
+      method: e => {
         deleteTodo(e);
         setAnchorEl(null);
       },
@@ -98,7 +98,7 @@ export default function ActionsMenu({
   };
 
   const handleEvent = (option: OptionName, e: any) => {
-    if (option === "Star") markStar(todo.id);
+    if (option === "Star") markStar(todo._id, todo.starred);
     else if (option === "Edit") setEditOpen(true);
     else if (option === "Delete") deleteTodo(e);
     setAnchorEl(null);
@@ -128,7 +128,7 @@ export default function ActionsMenu({
           },
         }}
       >
-        {options.map((option) => (
+        {options.map(option => (
           <MenuItem key={option.name} onClick={option.method}>
             <option.icon
               color={option.iconColor}

@@ -9,7 +9,9 @@
     "@types/node": "^14.14.16",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "axios": "^0.21.1",
     "darkreader": "^4.9.26",
+    "pusher-js": "^7.0.2",
     "react": "^17.0.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^17.0.1",
@@ -41,6 +43,7 @@
   },
   "devDependencies": {
     "@types/material-ui": "^0.21.8",
+    "@types/pusher-js": "^4.2.2",
     "@types/react-beautiful-dnd": "^13.0.0"
   }
 }

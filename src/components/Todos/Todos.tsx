@@ -30,7 +30,7 @@ const Todos = () => {
                   return (
                     <Todo
                       todo={todo}
-                      key={todo.id}
+                      key={todo._id}
                       onDelete={() => setDeleteSnackOpen(true)}
                       index={i}
                       onEdit={() => setEditSnackOpen(true)}
